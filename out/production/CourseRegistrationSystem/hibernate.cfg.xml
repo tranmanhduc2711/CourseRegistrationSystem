@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/portal</property>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">manhduc2711</property>
+    
+    <mapping class="sample.Clazz"/>
+    <mapping resource="Clazz.hbm.xml"/>
+    <mapping class="sample.Classinfo"/>
+    <mapping resource="Classinfo.hbm.xml"/>
+    <mapping class="sample.Course"/>
+    <mapping resource="Course.hbm.xml"/>
+    <mapping class="sample.Courseinfo"/>
+    <mapping resource="Courseinfo.hbm.xml"/>
+    <mapping resource="Courseregistrationsession.hbm.xml"/>
+    <mapping class="sample.Courseregistrationsession"/>
+    <mapping class="sample.Semester"/>
+    <mapping resource="Semester.hbm.xml"/>
+    <mapping class="sample.Session"/>
+    <mapping resource="Session.hbm.xml"/>
+    <mapping class="sample.Subject"/>
+    <mapping resource="Subject.hbm.xml"/>
+    <mapping class="sample.User"/>
+    <mapping resource="User.hbm.xml"/>
+    <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

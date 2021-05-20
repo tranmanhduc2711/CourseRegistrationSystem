@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="425.0" style="-fx-border-width: 0 5px 5px 5px; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="handleLogIn">
+   <top>
+      <Pane prefHeight="119.0" prefWidth="415.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="120.0" layoutX="148.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="386.0" prefWidth="416.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="username" layoutX="70.0" layoutY="55.0" prefHeight="44.0" prefWidth="275.0" promptText="Tên đăng nhập" />
+            <Button fx:id="submit" layoutX="70.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#onSubmit" prefHeight="51.0" prefWidth="272.0" style="-fx-background-color: black;" text="Đăng nhập" textFill="WHITE" />
+            <PasswordField fx:id="password" layoutX="70.0" layoutY="118.0" prefHeight="44.0" prefWidth="275.0" promptText="Mật khẩu" />
+            <Label fx:id="alert" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="174.0" prefHeight="25.0" prefWidth="292.0" text="Tên đăng nhập hoặc mật khẩu không đúng!" textFill="#da2323" visible="false" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

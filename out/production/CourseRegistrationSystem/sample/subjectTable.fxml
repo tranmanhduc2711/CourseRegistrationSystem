@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<Pane prefHeight="625.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Danh sách môn học">
+               <content>
+                  <VBox prefHeight="471.0" prefWidth="800.0">
+                     <children>
+                        <AnchorPane prefHeight="71.0" prefWidth="800.0">
+                           <children>
+                              <ImageView fitHeight="76.0" fitWidth="84.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="Thêm môn học" />
+            <Tab text="Cập nhật thông tin môn học">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Xóa môn học">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane prefHeight="133.0" prefWidth="800.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="134.0" fitWidth="180.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../subject.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="269.0" layoutY="44.0" prefHeight="59.0" prefWidth="263.0" style="-fx-border-radius: 50px; -fx-background-radius: 50px; -fx-background-color: black; -fx-border-color: black;" text=" QUẢN LÍ MÔN HỌC" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

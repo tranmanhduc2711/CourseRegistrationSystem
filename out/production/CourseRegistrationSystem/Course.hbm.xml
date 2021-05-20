@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sample.Course" table="course" schema="portal">
+        <id name="id">
+            <column name="id" sql-type="int"/>
+        </id>
+        <property name="subjectId">
+            <column name="subject_id" sql-type="char(10)" length="10" not-null="true"/>
+        </property>
+        <property name="semester">
+            <column name="semester" sql-type="int" not-null="true"/>
+        </property>
+        <property name="credits">
+            <column name="credits" sql-type="int" not-null="true"/>
+        </property>
+        <property name="teacher">
+            <column name="teacher" sql-type="char(30)" length="30" not-null="true"/>
+        </property>
+        <property name="room">
+            <column name="room" sql-type="char(5)" length="5" not-null="true"/>
+        </property>
+        <property name="dayOfWeek">
+            <column name="dayOfWeek" sql-type="char(3)" length="3" not-null="true"/>
+        </property>
+        <property name="sessionId">
+            <column name="session_id" sql-type="int" not-null="true"/>
+        </property>
+        <property name="max">
+            <column name="max" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
