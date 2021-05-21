@@ -1,14 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.CourseTable"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="122.0" prefWidth="782.0" style="-fx-background-color: black;">
+         <children>
+            <Label alignment="CENTER" layoutX="52.0" layoutY="33.0" prefHeight="41.0" prefWidth="245.0" style="-fx-border-width: 3px; -fx-border-color: black;" text="QUẢN LÍ HỌC PHẦN" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="767.0" layoutY="38.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="88.0" text="Quay lại" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="552.0" prefWidth="887.0">
+         <children>
+            <TabPane prefHeight="560.0" prefWidth="916.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Danh sách">
+                     <content>
+                        <VBox prefHeight="540.0" prefWidth="902.0">
+                           <children>
+                              <AnchorPane prefHeight="66.0" prefWidth="882.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 2px 0;">
+                                 <children>
+                                    <ImageView fitHeight="71.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../search-icon.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="603.0" promptText="Nhập " />
+                                    <Button layoutX="683.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="139.0" text="Tìm">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <ScrollPane prefHeight="448.0" prefWidth="667.0">
+                                 <content>
+                                    <TableView prefHeight="447.0" prefWidth="914.0">
+                                      <columns>
+                                        <TableColumn prefWidth="107.0" text="Mã môn" />
+                                        <TableColumn prefWidth="230.0" text="Tên môn" />
+                                          <TableColumn prefWidth="97.0" text="Số TC" />
+                                          <TableColumn prefWidth="204.0" text="GV lí thuyết" />
+                                          <TableColumn minWidth="0.0" text="Phòng" />
+                                          <TableColumn prefWidth="99.0" text="Thứ" />
+                                          <TableColumn minWidth="0.0" prefWidth="87.0" text="Ca" />
+                                      </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </content>
+                </Tab>
+                <Tab text="Thêm học phần">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="76.0" layoutY="46.0" prefHeight="31.0" prefWidth="109.0" text="Mã môn:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="76.0" layoutY="95.0" text="Tên môn:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="76.0" layoutY="233.0" text="Phòng học:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="76.0" layoutY="283.0" text="Thứ trong tuần:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="286.0" layoutY="46.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField layoutX="286.0" layoutY="95.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField layoutX="286.0" layoutY="145.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField layoutX="286.0" layoutY="190.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label layoutX="79.0" layoutY="330.0" prefHeight="35.0" prefWidth="50.0" text="Ca:">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="79.0" layoutY="145.0" text="Số tín chỉ:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="76.0" layoutY="188.0" text="GV lí thuyết:">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="286.0" layoutY="233.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField layoutX="286.0" layoutY="332.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField layoutX="286.0" layoutY="283.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Button layoutX="667.0" layoutY="416.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" text="Thêm">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                  <Tab text="Xóa học phần">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane prefHeight="78.0" prefWidth="916.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 2px 0;">
+                                 <children>
+                                    <ImageView fitHeight="71.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../search-icon.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="603.0" promptText="Nhập " />
+                                    <Button layoutX="683.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="139.0" text="Tìm">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
