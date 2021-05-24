@@ -1,25 +1,26 @@
 package dao;
 
+
 import org.hibernate.Session;
+import sample.Clazz;
 import sample.HibernateUtil;
 import java.util.List;
-import sample.User;
+
 
 import javax.persistence.Query;
 import java.util.List;
-
-public class UserDAO {
-    public static List<User> getAllUser()
+public class CLassDAO {
+    public static List<Clazz> getAllClass()
     {
         Session session= HibernateUtil.getSessionFactory().openSession();
 
-        List<User> users=null;
+        List<Clazz> clazz=null;
 
         try{
-            final String hql= " from User ";
+            final String hql= " from Clazz ";
             Query query=session.createQuery(hql);
 
-            users= query.getResultList();
+            clazz= query.getResultList();
 
         }catch(Exception e)
         {
@@ -27,6 +28,7 @@ public class UserDAO {
         }finally {
             session.close();
         }
-        return users;
+        return clazz;
     }
+
 }

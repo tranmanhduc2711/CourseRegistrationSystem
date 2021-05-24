@@ -16,7 +16,7 @@ public class handleLogIn {
 
 
 
-    @FXML void onSubmit()
+    @FXML  boolean onSubmit()
     {
         String user= username.getText();
         String pass= password.getText();
@@ -26,8 +26,9 @@ public class handleLogIn {
             if(user.equals(item.getUsername()) && pass.equals(item.getPassword()))
             {
                 alert.setVisible(true);
+                return true;
             }
         }
-
+        return false;
     }
 }
