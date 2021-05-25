@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="425.0" style="-fx-border-width: 0 5px 5px 5px; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="handleLogIn">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="425.0" style="-fx-border-width: 0 5px 5px 5px; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LogInController">
    <top>
       <Pane prefHeight="119.0" prefWidth="415.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
@@ -23,10 +23,10 @@
    <center>
       <AnchorPane prefHeight="386.0" prefWidth="416.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="username" layoutX="70.0" layoutY="55.0" prefHeight="44.0" prefWidth="275.0" promptText="Tên đăng nhập" />
-            <Button fx:id="submit" layoutX="70.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#onSubmit" prefHeight="51.0" prefWidth="272.0" style="-fx-background-color: black;" text="Đăng nhập" textFill="WHITE" />
-            <PasswordField fx:id="password" layoutX="70.0" layoutY="118.0" prefHeight="44.0" prefWidth="275.0" promptText="Mật khẩu" />
-            <Label fx:id="alert" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="174.0" prefHeight="25.0" prefWidth="292.0" text="Tên đăng nhập hoặc mật khẩu không đúng!" textFill="#da2323" visible="false" />
+            <TextField fx:id="user_login" layoutX="70.0" layoutY="55.0" prefHeight="44.0" prefWidth="275.0" promptText="Tên đăng nhập" />
+            <Button fx:id="submit_login" layoutX="70.0" layoutY="211.0" mnemonicParsing="false" onAction="#onSubmit" onMouseClicked="#onSubmit" prefHeight="51.0" prefWidth="272.0" style="-fx-background-color: black;" text="Đăng nhập" textFill="WHITE" />
+            <PasswordField fx:id="user_password" layoutX="70.0" layoutY="118.0" prefHeight="44.0" prefWidth="275.0" promptText="Mật khẩu" />
+            <Label fx:id="alert_login" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="174.0" prefHeight="25.0" prefWidth="292.0" text="Tên đăng nhập hoặc mật khẩu không đúng!" textFill="#da2323" visible="false" />
          </children>
       </AnchorPane>
    </center>
