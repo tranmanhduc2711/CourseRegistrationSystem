@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherAccountController">
    <children>
       <AnchorPane prefHeight="121.0" prefWidth="715.0">
          <children>
@@ -55,13 +54,13 @@
                               </AnchorPane>
                               <ScrollPane prefHeight="403.0" prefWidth="891.0">
                                  <content>
-                                    <TableView prefHeight="455.0" prefWidth="825.0">
+                                    <TableView fx:id="table_list" prefHeight="455.0" prefWidth="825.0">
                                        <columns>
-                                          <TableColumn prefWidth="218.0" text="Tên giáo vụ" />
-                                          <TableColumn prefWidth="182.0" text="Mã số" />
-                                          <TableColumn prefWidth="166.0" text="Ngày sinh" />
-                                          <TableColumn prefWidth="85.0" text="Phái" />
-                                          <TableColumn prefWidth="173.0" text="Tên đăng nhập" />
+                                          <TableColumn fx:id="name_column" prefWidth="218.0" text="Tên giáo vụ" />
+                                          <TableColumn fx:id="id_column" prefWidth="182.0" text="Mã số" />
+                                          <TableColumn fx:id="birthday_column" prefWidth="166.0" text="Ngày sinh" />
+                                          <TableColumn fx:id="gender_column" prefWidth="85.0" text="Phái" />
+                                          <TableColumn fx:id="username_column" prefWidth="173.0" text="Tên đăng nhập" />
                                        </columns>
                                     </TableView>
                                  </content>
@@ -84,8 +83,8 @@
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="286.0" layoutY="46.0" prefHeight="23.0" prefWidth="327.0" />
-                              <TextField layoutX="286.0" layoutY="95.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField fx:id="nameText" layoutX="286.0" layoutY="46.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField fx:id="idText" layoutX="286.0" layoutY="95.0" prefHeight="23.0" prefWidth="327.0" />
                               <Label layoutX="76.0" layoutY="145.0" text="Ngày sinh:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
@@ -96,19 +95,19 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="614.0" layoutY="373.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" text="Thêm">
+                              <Button fx:id="add_button" layoutX="614.0" layoutY="373.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" text="Thêm">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Button>
-                              <DatePicker layoutX="286.0" layoutY="145.0" />
-                              <Label alignment="CENTER_RIGHT" layoutX="468.0" layoutY="332.0" prefHeight="30.0" prefWidth="291.0" text="Tài khoản đã tồn tại!" textFill="#ff0101">
+                              <DatePicker fx:id="birthDay" layoutX="286.0" layoutY="145.0" />
+                              <Label fx:id="alert2" alignment="CENTER_RIGHT" layoutX="537.0" layoutY="332.0" prefHeight="30.0" prefWidth="222.0" text="Tài khoản đã tồn tại!" textFill="#ff0101" visible="false">
                                  <font>
                                     <Font name="Tahoma" size="20.0" />
                                  </font>
                               </Label>
-                              <CheckBox layoutX="286.0" layoutY="195.0" mnemonicParsing="false" text="Nam" />
-                              <CheckBox layoutX="434.0" layoutY="195.0" mnemonicParsing="false" text="Nữ" />
+                              <CheckBox fx:id="male" layoutX="286.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nam" />
+                              <CheckBox fx:id="female" layoutX="434.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nữ" />
                               <Label layoutX="76.0" layoutY="241.0" text="Tên đăng nhập:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
@@ -119,8 +118,13 @@
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="286.0" layoutY="241.0" prefHeight="23.0" prefWidth="327.0" />
-                              <TextField layoutX="286.0" layoutY="291.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField fx:id="userName" layoutX="286.0" layoutY="241.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField fx:id="passWord" layoutX="286.0" layoutY="291.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label fx:id="alert1" layoutX="134.0" layoutY="337.0" text="Thông tin bị thiếu!" textFill="#eb0000" visible="false">
+                                 <font>
+                                    <Font name="Tahoma" size="20.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </content>
@@ -142,8 +146,38 @@
                                           <Font name="Tahoma" size="18.0" />
                                        </font>
                                     </Button>
+                                    <Label fx:id="alert_notfound" layoutX="93.0" layoutY="25.0" prefHeight="21.0" prefWidth="212.0" text="Không tìm thấy!" textFill="RED" visible="false" />
                                  </children>
                               </AnchorPane>
+                              <Label layoutX="61.0" layoutY="101.0" prefHeight="31.0" prefWidth="151.0" text="Tên giáo vụ:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nameText1" layoutX="250.0" layoutY="101.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label layoutX="59.0" layoutY="149.0" text="Mã số giáo vụ:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idText1" layoutX="250.0" layoutY="149.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label layoutX="61.0" layoutY="208.0" text="Ngày sinh:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idText11" layoutX="250.0" layoutY="208.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label layoutX="61.0" layoutY="258.0" text="Tên đăng nhập:">
+                                 <font>
+                                    <Font name="Tahoma" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idText111" layoutX="250.0" layoutY="258.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Button layoutX="571.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="169.0" text="Xóa">
+                                 <font>
+                                    <Font name="Tahoma" size="20.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content>
@@ -159,3 +193,4 @@
       </AnchorPane>
    </children>
 </VBox>
+

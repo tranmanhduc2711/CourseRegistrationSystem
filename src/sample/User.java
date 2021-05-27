@@ -17,6 +17,18 @@ public class User {
     private String username;
     private String password;
 
+    public User()
+    {}
+    public User(String ho_va_ten, String s, Date date, int i, int i1, String tlb, String abc123) {
+        name=ho_va_ten;
+        id=s;
+        birthday=date;
+        role=i;
+        gender=i1;
+        username=tlb;
+        password=abc123;
+    }
+
     @Basic
     @Column(name = "name", nullable = true, length = 30)
     public String getName() {

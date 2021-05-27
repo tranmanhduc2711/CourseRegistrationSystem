@@ -9,17 +9,17 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class UserDAO {
-    public static List<User> getAllUser()
+    public static List<User> getAllUserTeacher()
     {
         Session session= HibernateUtil.getSessionFactory().openSession();
 
-        List<User> users=null;
+        List<User> teacher_users=null;
 
         try{
-            final String hql= " from User ";
+            final String hql= " from User where role=1 ";
             Query query=session.createQuery(hql);
 
-            users= query.getResultList();
+            teacher_users= query.getResultList();
 
         }catch(Exception e)
         {
@@ -27,6 +27,6 @@ public class UserDAO {
         }finally {
             session.close();
         }
-        return users;
+        return teacher_users;
     }
 }
