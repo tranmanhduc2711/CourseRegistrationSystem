@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,18 +9,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherAccountController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="972.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherAccountController">
    <children>
       <AnchorPane prefHeight="121.0" prefWidth="715.0">
          <children>
-            <AnchorPane prefHeight="121.0" prefWidth="810.0" style="-fx-background-color: black;">
+            <AnchorPane prefHeight="121.0" prefWidth="972.0" style="-fx-background-color: black;">
                <children>
                   <Label layoutX="139.0" layoutY="46.0" text="QUẢN LÍ TÀI KHOẢN GIÁO VỤ" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="690.0" layoutY="44.0" mnemonicParsing="false" text="QUAY LẠI" />
+                  <Button fx:id="logout_but" layoutX="873.0" layoutY="46.0" mnemonicParsing="false" text="QUAY LẠI" />
                   <ImageView fitHeight="115.0" fitWidth="123.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../circle-cropped.png" />
@@ -29,11 +30,11 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="487.0" prefWidth="809.0">
+      <AnchorPane prefHeight="551.0" prefWidth="972.0">
          <children>
-            <TabPane prefHeight="485.0" prefWidth="809.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="544.0" prefWidth="972.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
-                  <Tab text="Danh sách tài khoản">
+                  <Tab fx:id="list_tab" text="Danh sách tài khoản">
                      <content>
                         <VBox prefHeight="540.0" prefWidth="902.0">
                            <children>
@@ -44,23 +45,39 @@
                                           <Image url="@../search-icon.jpg" />
                                        </image>
                                     </ImageView>
-                                    <TextField layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="538.0" promptText="Nhập " />
-                                    <Button layoutX="618.0" layoutY="16.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="139.0" text="Tìm">
+                                    <TextField fx:id="search_bar" layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="363.0" promptText="Nhập mã số..." />
+                                    <Button fx:id="search_but" layoutX="443.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchTeacher" prefHeight="41.0" prefWidth="60.0" text="Tìm">
                                        <font>
                                           <Font name="Tahoma" size="18.0" />
                                        </font>
                                     </Button>
+                                    <Button fx:id="del_but" layoutX="614.0" layoutY="15.0" mnemonicParsing="false" onAction="#delete_user" prefHeight="41.0" prefWidth="85.0" text="Xóa">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="info_but" layoutX="705.0" layoutY="15.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="Reset MK">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="refresh_but" layoutX="511.0" layoutY="16.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="40.0" prefWidth="98.0" text="Refresh">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="update_but" layoutX="816.0" layoutY="21.0" mnemonicParsing="false" onAction="#UpdateInfo" text="Cập nhật thông tin" />
                                  </children>
                               </AnchorPane>
                               <ScrollPane prefHeight="403.0" prefWidth="891.0">
                                  <content>
-                                    <TableView fx:id="table_list" prefHeight="455.0" prefWidth="825.0">
+                                    <TableView fx:id="table_list" prefHeight="461.0" prefWidth="956.0">
                                        <columns>
-                                          <TableColumn fx:id="name_column" prefWidth="218.0" text="Tên giáo vụ" />
-                                          <TableColumn fx:id="id_column" prefWidth="182.0" text="Mã số" />
-                                          <TableColumn fx:id="birthday_column" prefWidth="166.0" text="Ngày sinh" />
-                                          <TableColumn fx:id="gender_column" prefWidth="85.0" text="Phái" />
-                                          <TableColumn fx:id="username_column" prefWidth="173.0" text="Tên đăng nhập" />
+                                          <TableColumn fx:id="name_column" prefWidth="246.0" style="-fx-alignment: CENTER;" text="Tên giáo vụ" />
+                                          <TableColumn fx:id="id_column" prefWidth="192.0" style="-fx-alignment: CENTER;" text="Mã số" />
+                                          <TableColumn fx:id="birthday_column" prefWidth="173.0" style="-fx-alignment: CENTER;" text="Ngày sinh" />
+                                          <TableColumn fx:id="gender_column" prefWidth="98.0" style="-fx-alignment: CENTER;" text="Phái" />
+                                          <TableColumn fx:id="username_column" prefWidth="246.0" style="-fx-alignment: CENTER;" text="Tên đăng nhập" />
                                        </columns>
                                     </TableView>
                                  </content>
@@ -69,58 +86,58 @@
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab text="Thêm giáo vụ">
+                  <Tab fx:id="add_tab" onSelectionChanged="#addTabSelected" text="Thêm giáo vụ">
                      <content>
                         <AnchorPane prefHeight="430.0" prefWidth="769.0">
                            <children>
-                              <Label layoutX="76.0" layoutY="46.0" prefHeight="31.0" prefWidth="151.0" text="Tên giáo vụ:">
+                              <Label layoutX="183.0" layoutY="46.0" prefHeight="31.0" prefWidth="151.0" text="Tên giáo vụ:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="76.0" layoutY="95.0" text="Mã số giáo vụ:">
+                              <Label layoutX="183.0" layoutY="96.0" text="Mã số giáo vụ:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="nameText" layoutX="286.0" layoutY="46.0" prefHeight="23.0" prefWidth="327.0" />
-                              <TextField fx:id="idText" layoutX="286.0" layoutY="95.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Label layoutX="76.0" layoutY="145.0" text="Ngày sinh:">
+                              <TextField fx:id="nameText" layoutX="441.0" layoutY="52.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField fx:id="idText" layoutX="441.0" layoutY="95.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label layoutX="183.0" layoutY="146.0" text="Ngày sinh:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="76.0" layoutY="188.0" text="Phái:">
+                              <Label layoutX="183.0" layoutY="188.0" text="Phái:">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="add_button" layoutX="614.0" layoutY="373.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" text="Thêm">
+                              <Button fx:id="add_button" layoutX="613.0" layoutY="394.0" mnemonicParsing="false" onAction="#add_user" prefHeight="46.0" prefWidth="154.0" text="Thêm">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Button>
-                              <DatePicker fx:id="birthDay" layoutX="286.0" layoutY="145.0" />
-                              <Label fx:id="alert2" alignment="CENTER_RIGHT" layoutX="537.0" layoutY="332.0" prefHeight="30.0" prefWidth="222.0" text="Tài khoản đã tồn tại!" textFill="#ff0101" visible="false">
+                              <DatePicker fx:id="birthDay" layoutX="441.0" layoutY="145.0" />
+                              <Label fx:id="alert2" alignment="CENTER_RIGHT" layoutX="545.0" layoutY="348.0" prefHeight="30.0" prefWidth="222.0" text="Tài khoản đã tồn tại!" textFill="#ff0101" visible="false">
                                  <font>
                                     <Font name="Tahoma" size="20.0" />
                                  </font>
                               </Label>
-                              <CheckBox fx:id="male" layoutX="286.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nam" />
-                              <CheckBox fx:id="female" layoutX="434.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nữ" />
-                              <Label layoutX="76.0" layoutY="241.0" text="Tên đăng nhập:">
+                              <CheckBox fx:id="male" layoutX="441.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nam" />
+                              <CheckBox fx:id="female" layoutX="613.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nữ" />
+                              <Label layoutX="183.0" layoutY="242.0" text="Tên đăng nhập:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="76.0" layoutY="285.0" text="Mật khẩu:">
+                              <Label layoutX="183.0" layoutY="292.0" text="Mật khẩu:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="userName" layoutX="286.0" layoutY="241.0" prefHeight="23.0" prefWidth="327.0" />
-                              <TextField fx:id="passWord" layoutX="286.0" layoutY="291.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Label fx:id="alert1" layoutX="134.0" layoutY="337.0" text="Thông tin bị thiếu!" textFill="#eb0000" visible="false">
+                              <TextField fx:id="userName" layoutX="441.0" layoutY="241.0" prefHeight="23.0" prefWidth="327.0" />
+                              <TextField fx:id="passWord" layoutX="441.0" layoutY="291.0" prefHeight="23.0" prefWidth="327.0" />
+                              <Label fx:id="alert1" layoutX="183.0" layoutY="350.0" text="Thông tin bị thiếu!" textFill="#eb0000" visible="false">
                                  <font>
                                     <Font name="Tahoma" size="20.0" />
                                  </font>
@@ -129,63 +146,59 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Xóa giáo vụ">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <Tab fx:id="update_tab" text="Cập nhật">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane prefHeight="78.0" prefWidth="809.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 2px 0;">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="506.0" prefWidth="972.0">
                                  <children>
-                                    <ImageView fitHeight="71.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../search-icon.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <TextField layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="488.0" promptText="Nhập " />
-                                    <Button layoutX="568.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="146.0" text="Tìm">
+                                    <TextField fx:id="u_nameText" layoutX="388.0" layoutY="60.0" prefHeight="23.0" prefWidth="327.0" />
+                                    <TextField fx:id="u_idText" layoutX="388.0" layoutY="108.0" prefHeight="23.0" prefWidth="327.0" />
+                                    <DatePicker fx:id="u_birthDay" layoutX="388.0" layoutY="159.0" />
+                                    <CheckBox fx:id="female" layoutX="573.0" layoutY="205.0" mnemonicParsing="false" onAction="#check_gender" text="Nữ" />
+                                    <CheckBox fx:id="male" layoutX="388.0" layoutY="205.0" mnemonicParsing="false" onAction="#check_gender" text="Nam" />
+                                    <Label layoutX="193.0" layoutY="309.0" text="Mật khẩu:">
                                        <font>
-                                          <Font name="Tahoma" size="18.0" />
+                                          <Font name="Tahoma" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="u_userName" layoutX="388.0" layoutY="253.0" prefHeight="23.0" prefWidth="327.0" />
+                                    <TextField fx:id="u_passWord" layoutX="388.0" layoutY="309.0" prefHeight="23.0" prefWidth="327.0" />
+                                    <Button fx:id="update_confirm" layoutX="629.0" layoutY="381.0" mnemonicParsing="false" onAction="#add_user" prefHeight="46.0" prefWidth="154.0" text="CẬP NHẬT">
+                                       <font>
+                                          <Font name="Tahoma" size="24.0" />
                                        </font>
                                     </Button>
-                                    <Label fx:id="alert_notfound" layoutX="93.0" layoutY="25.0" prefHeight="21.0" prefWidth="212.0" text="Không tìm thấy!" textFill="RED" visible="false" />
                                  </children>
                               </AnchorPane>
-                              <Label layoutX="61.0" layoutY="101.0" prefHeight="31.0" prefWidth="151.0" text="Tên giáo vụ:">
+                              <Label layoutX="193.0" layoutY="56.0" prefHeight="31.0" prefWidth="151.0" text="Tên giáo vụ:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="nameText1" layoutX="250.0" layoutY="101.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Label layoutX="59.0" layoutY="149.0" text="Mã số giáo vụ:">
+                              <Label layoutX="193.0" layoutY="106.0" text="Mã số giáo vụ:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="idText1" layoutX="250.0" layoutY="149.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Label layoutX="61.0" layoutY="208.0" text="Ngày sinh:">
+                              <Label layoutX="193.0" layoutY="156.0" text="Ngày sinh:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="idText11" layoutX="250.0" layoutY="208.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Label layoutX="61.0" layoutY="258.0" text="Tên đăng nhập:">
+                              <Label layoutX="193.0" layoutY="198.0" text="Phái:">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="193.0" layoutY="252.0" text="Tên đăng nhập:">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="idText111" layoutX="250.0" layoutY="258.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Button layoutX="571.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="169.0" text="Xóa">
-                                 <font>
-                                    <Font name="Tahoma" size="20.0" />
-                                 </font>
-                              </Button>
                            </children>
                         </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Thông tin tài khoản">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
+                    </content>
                   </Tab>
                </tabs>
             </TabPane>
@@ -193,4 +206,3 @@
       </AnchorPane>
    </children>
 </VBox>
-
