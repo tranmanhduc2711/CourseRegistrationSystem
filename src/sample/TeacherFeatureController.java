@@ -42,8 +42,23 @@ public class TeacherFeatureController {
     @FXML private Button account_info;
     @FXML private Button log_out;
 
-    public void click(MouseEvent event) throws IOException {
-        System.out.print("hllo");
+    public void click_accButton(MouseEvent event) throws IOException {
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("TeacherUserTable.fxml"));
+        root=loader.load();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    public void click_subjectButton(MouseEvent event) throws  IOException{
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("subjectTable.fxml"));
+        root=loader.load();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
     public void mouseEnter(MouseEvent e) throws IOException{
         if(e.getSource()==class_button) {
@@ -118,6 +133,7 @@ public class TeacherFeatureController {
         stage.setResizable(false);
         stage.show();
     }
+
 
 
 }

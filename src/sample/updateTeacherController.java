@@ -6,10 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import javafx.event.ActionEvent;
 
 public class updateTeacherController {
     @FXML
@@ -22,8 +23,6 @@ public class updateTeacherController {
     private TextField userName;
     @FXML
     private TextField passWord;
-    @FXML
-    private Button update_confirm;
     @FXML
     private CheckBox male;
     @FXML
@@ -58,8 +57,8 @@ public class updateTeacherController {
         }
     }
 
-    @FXML
-    private void submit(ActionEvent e)
+
+    public void Submit(ActionEvent e)
     {
         String id = idText.getText();
         String name = nameText.getText();
@@ -79,13 +78,13 @@ public class updateTeacherController {
             user.setBirthday(Date.valueOf(date));
             user.setUsername(username);
             user.setPassword(password);
-            if(user.getGender()==1) {
-                male.setSelected(true);
+            if(male.isSelected()) {
                 female.setSelected(false);
+                user.setGender(1);
             }
             else {
-                female.setSelected(true);
                 male.setSelected(false);
+                user.setGender(0);
             }
         }
         if(!update) {
@@ -96,7 +95,7 @@ public class updateTeacherController {
                 alert.setContentText("Mã đã tồn tại!");
                 alert.showAndWait();
             }else {
-                UserDAO.addUser(user);
+                UserDAO.add_Teacher(user);
                 Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 stage.close();
             }
@@ -116,6 +115,7 @@ public class updateTeacherController {
                 return true;
         return false;
     }
+
 
 
 }

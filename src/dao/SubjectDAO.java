@@ -8,9 +8,10 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class SubjectDAO {
+    private static Session session;
     public static List<Subject> getAllSubject()
     {
-        Session session= HibernateUtil.getSessionFactory().openSession();
+         session= HibernateUtil.getSessionFactory().openSession();
 
         List<Subject> sub=null;
         try{

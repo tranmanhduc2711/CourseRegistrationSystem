@@ -42,7 +42,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="update_confirm" layoutX="613.0" layoutY="363.0" mnemonicParsing="false" onAction="#add_user" prefHeight="46.0" prefWidth="154.0" text="CẬP NHẬT">
+            <Button layoutX="613.0" layoutY="363.0" mnemonicParsing="false" onAction="#Submit" prefHeight="46.0" prefWidth="154.0" text="CẬP NHẬT">
                <font>
                   <Font name="Tahoma" size="24.0" />
                </font>
@@ -53,8 +53,8 @@
                   <Font name="Tahoma" size="20.0" />
                </font>
             </Label>
-            <CheckBox fx:id="male" layoutX="441.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nam" />
-            <CheckBox fx:id="female" layoutX="613.0" layoutY="195.0" mnemonicParsing="false" onAction="#check_gender" text="Nữ" />
+            <CheckBox fx:id="male" layoutX="441.0" layoutY="195.0" mnemonicParsing="false" text="Nam" />
+            <CheckBox fx:id="female" layoutX="613.0" layoutY="195.0" mnemonicParsing="false" text="Nữ" />
             <Label layoutX="183.0" layoutY="242.0" text="Tên đăng nhập:">
                <font>
                   <Font name="Tahoma" size="24.0" />

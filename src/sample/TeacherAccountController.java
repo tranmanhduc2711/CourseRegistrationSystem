@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,7 +20,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class TeacherAccountController extends updateTeacherController implements Initializable  {
+public class TeacherAccountController  implements Initializable  {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -37,7 +38,7 @@ public class TeacherAccountController extends updateTeacherController implements
     @FXML
     private TableColumn<User, String> username_column;
 
-    private ObservableList<User> teacherList;
+    private ObservableList<User> teacherList= FXCollections.observableArrayList();
 
     @FXML
     private TextField nameText;
@@ -75,22 +76,13 @@ public class TeacherAccountController extends updateTeacherController implements
     private Tab add_tab;
     @FXML
     private Tab update_tab;
-
-    private List<User> list_user = UserDAO.getAllUserTeacher();
+    @FXML
+    private Button logout_but;
+    private List<User> list_user ;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        teacherList = FXCollections.observableArrayList();
-        for (int i = 0; i < list_user.size(); i++) {
-            teacherList.add(list_user.get(i));
-        }
-        name_column.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        id_column.setCellValueFactory(new PropertyValueFactory<User, String>("id"));
-        birthday_column.setCellValueFactory(new PropertyValueFactory<User, Date>("birthday"));
-        gender_column.setCellValueFactory(new PropertyValueFactory<User, Integer>("gender"));
-        username_column.setCellValueFactory(new PropertyValueFactory<User, String>("username"));
-        table_list.setItems(teacherList);
-
+        Refresh();
     }
 
     public void check_gender(ActionEvent e) {
@@ -102,6 +94,7 @@ public class TeacherAccountController extends updateTeacherController implements
     }
 
     public void add_user(ActionEvent event) {
+        list_user= UserDAO.getAllUserTeacher();
         if (nameText.getText().isBlank() | idText.getText().isBlank() | userName.getText().isBlank() | passWord.getText().isBlank() | (male.isSelected() == false && female.isSelected() == false)) {
             alert1.setVisible(true);
             alert2.setVisible(false);
@@ -135,6 +128,7 @@ public class TeacherAccountController extends updateTeacherController implements
     }
 
     public void delete_user(ActionEvent e) {
+        list_user= UserDAO.getAllUserTeacher();
         User t = table_list.getSelectionModel().getSelectedItem();
         if (t == null)
             return;
@@ -146,7 +140,10 @@ public class TeacherAccountController extends updateTeacherController implements
     }
 
     public void Refresh() {
-        teacherList.clear();
+        if(teacherList != null)
+            teacherList.clear();
+        list_user= UserDAO.getAllUserTeacher();
+
         for (int i = 0; i < list_user.size(); i++) {
             teacherList.add(list_user.get(i));
         }
@@ -173,7 +170,7 @@ public class TeacherAccountController extends updateTeacherController implements
         User t = table_list.getSelectionModel().getSelectedItem();
         if (t == null)
             return;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherFeature.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("updateTeacherInfo.fxml"));
         loader.load();
         updateTeacherController controller = loader.getController();
         controller.setUpdate(true);
@@ -207,5 +204,15 @@ public class TeacherAccountController extends updateTeacherController implements
             table_list.setItems(teacherList);
             System.out.println("1");
         }
+    }
+    @FXML
+    public void setLogout_but(ActionEvent e) throws IOException {
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("TeacherFeature.fxml"));
+        root=loader.load();
+        stage=(Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }

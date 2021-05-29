@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class UserDAO {
-    private static Session session= HibernateUtil.getSessionFactory().openSession();
+    private static Session session;
     public static List<User> getAllUser()
     {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -34,7 +34,7 @@ public class UserDAO {
     public static List<User> getAllUserTeacher()
     {
 
-
+        session = HibernateUtil.getSessionFactory().openSession();
         List<User> teacher_users=null;
 
         try{
@@ -82,22 +82,6 @@ public class UserDAO {
         }
     }
 
-    public static void addUser(User user)
-    {
-        session = HibernateUtil.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
-        }
-        catch(HibernateException e)
-        {
-            System.out.println(e);
-        }
-        finally {
-            session.close();
-        }
-    }
 
     public static void updateUser(User user)
     {

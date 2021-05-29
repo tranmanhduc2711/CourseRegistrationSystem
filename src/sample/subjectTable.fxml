@@ -6,44 +6,123 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<Pane prefHeight="625.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="665.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.subjectTableController">
    <children>
-      <TabPane layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="906.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Danh sách môn học">
                <content>
-                  <VBox prefHeight="471.0" prefWidth="800.0">
+                  <VBox prefHeight="496.0" prefWidth="871.0">
                      <children>
-                        <AnchorPane prefHeight="71.0" prefWidth="800.0">
+                        <AnchorPane prefHeight="55.0" prefWidth="907.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 2px 0;">
                            <children>
-                              <ImageView fitHeight="76.0" fitWidth="84.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="71.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../search-icon.jpg" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="search_bar" layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="446.0" promptText="Nhập mã số..." />
+                              <Button fx:id="search_but" layoutX="526.0" layoutY="16.0" mnemonicParsing="false" onAction="#searchTeacher" prefHeight="41.0" prefWidth="114.0" text="Tìm">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="430.0" prefWidth="972.0" style="-fx-border-color: black;">
+                           <children>
+                              <ScrollPane layoutX="2.0" layoutY="2.0" prefHeight="416.0" prefWidth="685.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="1.0">
+                                 <content>
+                                    <TableView fx:id="table_list" prefHeight="461.0" prefWidth="665.0">
+                                       <columns>
+                                          <TableColumn fx:id="name_column" prefWidth="328.0" style="-fx-alignment: CENTER;" text="Tên môn học" />
+                                          <TableColumn fx:id="id_column" prefWidth="212.0" style="-fx-alignment: CENTER;" text="Mã môn" />
+                                          <TableColumn fx:id="credit_column" prefWidth="124.0" style="-fx-alignment: CENTER;" text="Số tín chỉ" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                              <Button fx:id="refresh_but" layoutX="744.0" layoutY="14.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="40.0" prefWidth="98.0" text="Refresh">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="del_but" layoutX="744.0" layoutY="69.0" mnemonicParsing="false" onAction="#delete_user" prefHeight="41.0" prefWidth="98.0" text="Xóa">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="info_but" layoutX="743.0" layoutY="129.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="Reset MK">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="update_but" layoutX="706.0" layoutY="189.0" mnemonicParsing="false" onAction="#UpdateInfo" prefHeight="46.0" prefWidth="173.0" text="Cập nhật thông tin">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
                </content>
           </Tab>
-          <Tab text="Thêm môn học" />
-            <Tab text="Cập nhật thông tin môn học">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Xóa môn học">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
+          <Tab fx:id="addTab" text="Thêm môn học">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="148.0" layoutY="95.0" text="Tên môn học:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="153.0" layoutY="166.0" text="Mã môn học:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="153.0" layoutY="233.0" text="Số tín chỉ:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nameText" layoutX="368.0" layoutY="94.0" prefHeight="31.0" prefWidth="317.0" />
+                        <TextField fx:id="idText" layoutX="368.0" layoutY="166.0" prefHeight="31.0" prefWidth="318.0" />
+                        <TextField fx:id="creditText" layoutX="368.0" layoutY="233.0" prefHeight="31.0" prefWidth="116.0" />
+                        <Button fx:id="add_button" layoutX="600.0" layoutY="363.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="177.0" text="THÊM">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="alert1" layoutX="153.0" layoutY="326.0" text="Vui lòng điền đủ thông tin!" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="alert2" layoutX="621.0" layoutY="328.0" text="Môn học đã tồn tại!" textFill="RED">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="noti" layoutX="153.0" layoutY="380.0" text="Thêm hành công!">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
         </tabs>
       </TabPane>
-      <AnchorPane prefHeight="133.0" prefWidth="800.0" style="-fx-background-color: black;">
+      <AnchorPane prefHeight="140.0" prefWidth="906.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="134.0" fitWidth="180.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../subject.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="269.0" layoutY="44.0" prefHeight="59.0" prefWidth="263.0" style="-fx-border-radius: 50px; -fx-background-radius: 50px; -fx-background-color: black; -fx-border-color: black;" text=" QUẢN LÍ MÔN HỌC" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="355.0" layoutY="44.0" prefHeight="59.0" prefWidth="263.0" style="-fx-border-radius: 50px; -fx-background-radius: 50px; -fx-background-color: black; -fx-border-color: black;" text=" QUẢN LÍ MÔN HỌC" textFill="WHITE">
                <font>
                   <Font name="Tahoma Bold" size="24.0" />
                </font>
