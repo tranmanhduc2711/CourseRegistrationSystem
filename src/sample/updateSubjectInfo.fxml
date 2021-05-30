@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.updateSubjectController">
+   <children>
+      <AnchorPane prefHeight="118.0" prefWidth="731.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label layoutX="182.0" layoutY="42.0" text="CẬP NHẬT THÔNG TIN MÔN HỌC" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="368.0" prefWidth="731.0">
+         <children>
+            <Label layoutX="89.0" layoutY="35.0" text="Tên môn học:">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameText" layoutX="273.0" layoutY="35.0" prefHeight="31.0" prefWidth="317.0" />
+            <Label layoutX="89.0" layoutY="102.0" text="Mã môn học:">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idText" layoutX="273.0" layoutY="109.0" prefHeight="31.0" prefWidth="318.0" />
+            <Label layoutX="89.0" layoutY="173.0" text="Số tín chỉ:">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="credit_box" layoutX="273.0" layoutY="167.0" prefWidth="150.0" />
+            <Label fx:id="alert1" layoutX="70.0" layoutY="220.0" text="Vui lòng điền đủ thông tin!" textFill="RED" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="alert2" layoutX="476.0" layoutY="223.0" text="Môn học đã tồn tại!" textFill="RED" visible="false">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="update_button" layoutX="455.0" layoutY="253.0" mnemonicParsing="false" onAction="#Submit" prefHeight="35.0" prefWidth="169.0" text="CẬP NHẬT">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

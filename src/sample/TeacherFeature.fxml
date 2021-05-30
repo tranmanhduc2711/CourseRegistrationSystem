@@ -113,7 +113,7 @@
                         </ImageView>
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="subject_button" onMouseClicked="#click_accButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #c0c0c0; -fx-border-width: 5px 5px 10px 5px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <AnchorPane fx:id="subject_button" onMouseClicked="#click_subjectButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #c0c0c0; -fx-border-width: 5px 5px 10px 5px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <children>
                         <ImageView fitHeight="109.0" fitWidth="104.0" layoutX="83.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                             <image>

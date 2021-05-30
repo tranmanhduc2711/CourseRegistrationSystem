@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SemesterTableController">
    <children>
       <AnchorPane prefHeight="119.0" prefWidth="704.0" style="-fx-background-color: black;">
          <children>
@@ -17,11 +17,12 @@
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="596.0" layoutY="44.0" mnemonicParsing="false" text="QUAY LẠI" />
+            <Button fx:id="back_but" layoutX="786.0" layoutY="14.0" mnemonicParsing="false" text="QUAY LẠI" />
+            <Button fx:id="logOut" layoutX="768.0" layoutY="60.0" mnemonicParsing="false" text="ĐĂNG XUÂT" />
          </children></AnchorPane>
-      <AnchorPane prefHeight="487.0" prefWidth="809.0">
+      <AnchorPane prefHeight="534.0" prefWidth="885.0">
          <children>
-            <TabPane prefHeight="485.0" prefWidth="809.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="533.0" prefWidth="885.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab text="Danh sách">
                      <content>
@@ -34,22 +35,24 @@
                                           <Image url="@../search-icon.jpg" />
                                        </image>
                                     </ImageView>
-                                    <TextField layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="538.0" promptText="Nhập " />
-                                    <Button layoutX="618.0" layoutY="16.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="139.0" text="Tìm">
+                                    <TextField fx:id="search_bar" layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="365.0" promptText="Nhập " />
+                                    <Button fx:id="search_but" layoutX="445.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="Tìm">
                                        <font>
                                           <Font name="Tahoma" size="18.0" />
                                        </font>
                                     </Button>
+                                    <Button fx:id="del_but" layoutX="567.0" layoutY="16.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="103.0" text="XÓA" />
+                                    <Button fx:id="set_but" layoutX="687.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="178.0" text="SET HỌC KÌ HIỆN TẠI" />
                                  </children>
                               </AnchorPane>
                               <ScrollPane prefHeight="448.0" prefWidth="667.0">
                                  <content>
-                                    <TableView prefHeight="455.0" prefWidth="811.0">
+                                    <TableView fx:id="semester_list" prefHeight="455.0" prefWidth="866.0">
                                        <columns>
-                                          <TableColumn prefWidth="150.0" text="Tên học kì" />
-                                          <TableColumn prefWidth="203.0" text="Năm học" />
-                                          <TableColumn prefWidth="238.0" text="Ngày bắt đàu" />
-                                          <TableColumn prefWidth="198.0" text="Ngày kết thúc" />
+                                          <TableColumn prefWidth="229.0" text="Tên học kì" />
+                                          <TableColumn prefWidth="214.0" text="Năm học" />
+                                          <TableColumn prefWidth="197.0" text="Ngày bắt đàu" />
+                                          <TableColumn prefWidth="224.0" text="Ngày kết thúc" />
                                        </columns>
                                     </TableView>
                                  </content>
@@ -58,7 +61,7 @@
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab text="Thêm học kì">
+                  <Tab fx:id="add_tab" text="Thêm học kì">
                      <content>
                         <AnchorPane prefHeight="430.0" prefWidth="769.0">
                            <children>
@@ -99,34 +102,6 @@
                            </children>
                         </AnchorPane>
                      </content>
-                  </Tab>
-                  <Tab text="Xóa học kì">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <AnchorPane prefHeight="78.0" prefWidth="809.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 2px 0;">
-                                 <children>
-                                    <ImageView fitHeight="71.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../search-icon.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <TextField layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="488.0" promptText="Nhập " />
-                                    <Button layoutX="568.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="146.0" text="Tìm">
-                                       <font>
-                                          <Font name="Tahoma" size="18.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Set học kì hiện tại">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
                   </Tab>
                </tabs>
             </TabPane>

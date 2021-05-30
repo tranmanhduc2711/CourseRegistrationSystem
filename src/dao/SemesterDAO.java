@@ -3,24 +3,24 @@ package dao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import sample.HibernateUtil;
-import sample.Subject;
-import sample.User;
+import sample.Semester;
+
 
 import javax.persistence.Query;
 import java.util.List;
 
-public class SubjectDAO {
+public class SemesterDAO {
     private static Session session;
-    public static List<Subject> getAllSubject()
+    public static List<Semester> getAllSemester()
     {
-         session= HibernateUtil.getSessionFactory().openSession();
+        session= HibernateUtil.getSessionFactory().openSession();
 
-        List<Subject> sub=null;
+        List<Semester> sem=null;
         try{
-            final String hql= " from Subject ";
+            final String hql= " from Semester ";
             Query query=session.createQuery(hql);
 
-            sub= query.getResultList();
+            sem= query.getResultList();
 
         }catch(Exception e)
         {
@@ -28,9 +28,9 @@ public class SubjectDAO {
         }finally {
             session.close();
         }
-        return  sub;
+        return  sem;
     }
-    public static void add_Subject(Subject t)
+    public static void add_Semester(Semester t)
     {
         session= HibernateUtil.getSessionFactory().openSession();
 
@@ -46,7 +46,7 @@ public class SubjectDAO {
             session.close();
         }
     }
-    public  static void delete_sub(Subject t){
+    public  static void delete_sem(Semester t){
         session=HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
@@ -60,7 +60,7 @@ public class SubjectDAO {
             session.close();
         }
     }
-    public static void updateSubject(Subject sub)
+    public static void updateSemester(Semester sub)
     {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
