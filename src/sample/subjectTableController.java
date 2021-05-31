@@ -101,18 +101,21 @@ public class subjectTableController implements Initializable {
             for (Subject item : data) {
                 if (idText.getText().equals(item.getId()) | nameText.getText().equals(item.getName()) | credit_box.getValue() == null) {
                     alert2.setVisible(true);
-                } else {
-                    Subject newSub = new Subject();
-                    newSub.setId(idText.getText());
-                    newSub.setName(nameText.getText());
-                    newSub.setCredits(credit_box.getValue());
-                    subjectList.add(newSub);
-                    data.add(newSub);
-                    SubjectDAO.add_Subject(newSub);
+                    return;
                 }
             }
+                Subject newSub = new Subject();
+                newSub.setId(idText.getText());
+                newSub.setName(nameText.getText());
+                newSub.setCredits(credit_box.getValue());
+                subjectList.add(newSub);
+                data.add(newSub);
+                SubjectDAO.add_Subject(newSub);
+
+            }
+
         }
-    }
+
 
     @FXML
     public void addTabSelected() {

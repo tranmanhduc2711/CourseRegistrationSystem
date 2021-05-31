@@ -1,6 +1,7 @@
 package sample;
 
 
+import dao.SemesterDAO;
 import dao.UserDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +13,15 @@ import java.util.List;
 
 
 public class Main extends Application {
+     public static Semester currentSemester;
+     public Semester getCurrentSemester()
+     {
+         return currentSemester;
+     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("TeacherFeature.fxml"));
 
@@ -35,10 +42,10 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         launch(args);
-//        List<User> l= UserDAO.getAllUserTeacher();
-//        for(User item:l)
+//        List<Semester> l= SemesterDAO.getAllSemester();
+//        for(Semester item:l)
 //        {
-//            System.out.println(item.getUsername());
+//            System.out.println(item.getId());
 //        }
     }
 }
