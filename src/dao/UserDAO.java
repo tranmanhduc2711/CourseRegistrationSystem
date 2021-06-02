@@ -12,13 +12,13 @@ import java.util.List;
 
 public class UserDAO {
     private static Session session;
-    public static List<User> getAllUser()
+    public static List<User> getAllUserStudent()
     {
         session = HibernateUtil.getSessionFactory().openSession();
         List<User> user = null;
         try
         {
-            final String hql = "from User ";
+            final String hql = "from User where User.role=1 ";
             Query query = session.createQuery(hql);
             user=query.getResultList();
         }
@@ -38,7 +38,7 @@ public class UserDAO {
         List<User> teacher_users=null;
 
         try{
-            final String hql= " from User  ";
+            final String hql= " from User where User.role=0  ";
             Query query=session.createQuery(hql);
 
             teacher_users= query.getResultList();

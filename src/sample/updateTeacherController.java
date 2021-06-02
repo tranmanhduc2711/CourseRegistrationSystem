@@ -109,7 +109,7 @@ public class updateTeacherController {
     }
 
     private boolean findUser(User user) {
-        List<User> list = UserDAO.getAllUser();
+        List<User> list = UserDAO.getAllUserTeacher();
         for (User i : list)
             if (i.getId().compareTo(user.getId())==0)
                 return true;

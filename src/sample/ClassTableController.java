@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
@@ -51,7 +53,7 @@ public class ClassTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Refresh();
     }
     public void Refresh() {
         if(classList != null)
@@ -86,8 +88,16 @@ public class ClassTableController implements Initializable {
         femaleText.clear();
     }
 
-    public void showClassInfo(ActionEvent e)
-    {
-
+    public void showClassInfo(ActionEvent e) throws IOException {
+        Clazz t = table_list.getSelectionModel().getSelectedItem();
+        if (t == null)
+            return;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("classInfoTable.fxml"));
+        loader.load();
+        ClassInfoTableController controller = loader.getController();
+        Scene scene = new Scene(loader.getRoot());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 }

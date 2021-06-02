@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="972.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClassInfoTableController">
+   <children>
+      <AnchorPane prefHeight="119.0" prefWidth="857.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label layoutX="45.0" layoutY="38.0" prefHeight="41.0" prefWidth="232.0" text="THÔNG TIN LỚP HỌC" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="back_but" layoutX="873.0" layoutY="14.0" mnemonicParsing="false" text="QUAY LẠI" />
+            <Button layoutX="855.0" layoutY="64.0" mnemonicParsing="false" text="ĐĂNG XUẤT" />
+         </children>
+      </AnchorPane>
+      <TabPane prefHeight="598.0" prefWidth="972.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Danh sách sinh viên">
+               <content>
+                  <VBox prefHeight="527.0" prefWidth="972.0">
+                     <children>
+                        <AnchorPane prefHeight="71.0" prefWidth="972.0">
+                           <children>
+                              <AnchorPane prefHeight="76.0" prefWidth="972.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 2px 0;">
+                                 <children>
+                                    <ImageView fitHeight="71.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../search-icon.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="search_bar" layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="363.0" promptText="Nhập mã số..." />
+                                    <Button fx:id="search_but" layoutX="443.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="Tìm">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="del_but" layoutX="656.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="Xóa">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="refresh_but" layoutX="545.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="Refresh">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane prefHeight="480.0" prefWidth="972.0">
+                           <content>
+                              <TableView fx:id="table_list" prefHeight="462.0" prefWidth="1120.0">
+                                <columns>
+                                  <TableColumn fx:id="name_column" prefWidth="227.0" style="-fx-alignment: CENTER;" text="Tên sinh viên" />
+                                  <TableColumn fx:id="id_column" minWidth="5.0" prefWidth="181.0" style="-fx-alignment: CENTER;" text="Mã số" />
+                                    <TableColumn fx:id="birthday_column" prefWidth="200.0" style="-fx-alignment: CENTER;" text="Ngày sinh" />
+                                    <TableColumn fx:id="gender_column" prefWidth="112.0" style="-fx-alignment: CENTER;" text="Phái" />
+                                    <TableColumn fx:id="username_column" prefWidth="201.0" style="-fx-alignment: CENTER;" text="Tên đăng nhập" />
+                                    <TableColumn fx:id="pass_column" prefWidth="198.0" style="-fx-alignment: CENTER;" text="Mật khẩu" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="Thêm sinh viên">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
