@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CourseSessionController">
+   <children>
+      <AnchorPane prefHeight="123.0" prefWidth="793.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label layoutX="53.0" layoutY="42.0" text="KÌ ĐĂNG KÍ HỌC PHẦN" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="651.0" layoutY="14.0" mnemonicParsing="false" text="QUAY LẠI" />
+            <Button layoutX="642.0" layoutY="69.0" mnemonicParsing="false" text="ĐĂNG XUẤT" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="430.0" prefWidth="828.0">
+         <children>
+            <TabPane prefHeight="435.0" prefWidth="759.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Danh sách">
+                     <content>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="396.0" prefWidth="554.0">
+                                 <content>
+                                    <TableView fx:id="table_list" prefHeight="395.0" prefWidth="551.0">
+                                      <columns>
+                                        <TableColumn fx:id="semester_column" prefWidth="129.0" text="Học kì" />
+                                        <TableColumn fx:id="start_column" prefWidth="217.0" text="Ngày bắt đầu" />
+                                          <TableColumn fx:id="end_column" prefWidth="201.0" text="Ngày kết thúc" />
+                                      </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="60.0" layoutY="29.0" mnemonicParsing="false" text="REFRESH" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </content>
+                </Tab>
+                <Tab text="Thêm kì đăng kí">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="144.0" layoutY="50.0" text="Ngày bắt đầu:">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="143.0" layoutY="103.0" text="Ngày kết thúc:">
+                                 <font>
+                                    <Font name="Tahoma" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="459.0" layoutY="219.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="122.0" text="THÊM" />
+                              <DatePicker layoutX="363.0" layoutY="46.0" />
+                              <DatePicker layoutX="363.0" layoutY="99.0" />
+                              <Label layoutX="143.0" layoutY="224.0" text="Thêm thành công!">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

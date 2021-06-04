@@ -50,21 +50,21 @@
                                 <Image url="@../classroom-icon.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="class_label" onMouseClicked="#click_classButton" alignment="CENTER" layoutX="46.0" layoutY="139.0" prefHeight="40.0" prefWidth="164.0" text="Quản lí lớp học">
+                        <Label fx:id="class_label" alignment="CENTER" layoutX="46.0" layoutY="139.0" onMouseClicked="#click_classButton" prefHeight="40.0" prefWidth="164.0" text="Quản lí lớp học">
                             <font>
                                 <Font name="Tahoma" size="24.0" />
                             </font>
                         </Label>
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="student_button"  onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #c0c0c0; -fx-background-color: white; -fx-border-width: 10px 5px 5px 5px;" GridPane.columnIndex="1">
+                <AnchorPane fx:id="student_button" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #c0c0c0; -fx-background-color: white; -fx-border-width: 10px 5px 5px 5px;" GridPane.columnIndex="1">
                     <children>
                         <ImageView fitHeight="111.0" fitWidth="117.0" layoutX="77.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../student-icon.png" />
+                                <Image url="@../session.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="student_label" alignment="CENTER" layoutX="36.0" layoutY="146.0" prefHeight="32.0" prefWidth="199.0" text="Quản lí sinh viên">
+                        <Label fx:id="student_label" alignment="CENTER" layoutX="26.0" layoutY="145.0" prefHeight="32.0" prefWidth="213.0" text="Kì đăng kí học phần">
                             <font>
                                 <Font name="Tahoma" size="24.0" />
                             </font>

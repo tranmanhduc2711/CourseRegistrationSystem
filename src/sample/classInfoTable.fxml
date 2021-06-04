@@ -48,7 +48,7 @@
                                           <Font name="Tahoma" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="refresh_but" layoutX="545.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="Refresh">
+                                    <Button fx:id="refresh_but"  onAction="#refresh" layoutX="545.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="Refresh">
                                        <font>
                                           <Font name="Tahoma" size="18.0" />
                                        </font>

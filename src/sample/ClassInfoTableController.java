@@ -240,7 +240,7 @@ public class ClassInfoTableController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("updateStudentTable.fxml"));
         loader.load();
         updateStudentTableController controller = loader.getController();
-        controller.setUpdate(true);
+        controller.setUpdate(curClass);
         controller.setTextField(t);
         Scene scene = new Scene(loader.getRoot());
         Stage stage = new Stage();

@@ -79,6 +79,26 @@ public class TeacherFeatureController {
         stage.setResizable(false);
         stage.show();
     }
+    public void click_SessionButton(MouseEvent event) throws IOException
+    {
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("classTable.fxml"));
+        root=loader.load();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    public void click_CourseButton(MouseEvent event) throws IOException
+    {
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("CourseTable.fxml"));
+        root=loader.load();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
     public void mouseEnter(MouseEvent e) throws IOException{
         if(e.getSource()==class_button) {
             class_button.setStyle("-fx-background-color:#5F6062");

@@ -11,7 +11,6 @@ public class Course {
     private int id;
     private String subjectId;
     private Integer semester;
-    private Integer credits;
     private String teacher;
     private String room;
     private String dayOfWeek;
@@ -48,15 +47,8 @@ public class Course {
         this.semester = semester;
     }
 
-    @Basic
-    @Column(name = "credits", nullable = true)
-    public Integer getCredits() {
-        return credits;
-    }
 
-    public void setCredits(Integer credits) {
-        this.credits = credits;
-    }
+
 
     @Basic
     @Column(name = "teacher", nullable = true, length = 30)
@@ -113,11 +105,11 @@ public class Course {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return id == course.id && Objects.equals(subjectId, course.subjectId) && Objects.equals(semester, course.semester) && Objects.equals(credits, course.credits) && Objects.equals(teacher, course.teacher) && Objects.equals(room, course.room) && Objects.equals(dayOfWeek, course.dayOfWeek) && Objects.equals(sessionId, course.sessionId) && Objects.equals(max, course.max);
+        return id == course.id && Objects.equals(subjectId, course.subjectId) && Objects.equals(semester, course.semester)  && Objects.equals(teacher, course.teacher) && Objects.equals(room, course.room) && Objects.equals(dayOfWeek, course.dayOfWeek) && Objects.equals(sessionId, course.sessionId) && Objects.equals(max, course.max);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, subjectId, semester, credits, teacher, room, dayOfWeek, sessionId, max);
+        return Objects.hash(id, subjectId, semester, teacher, room, dayOfWeek, sessionId, max);
     }
 }

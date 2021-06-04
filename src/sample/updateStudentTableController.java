@@ -1,5 +1,6 @@
 package sample;
 
+import dao.CLassDAO;
 import dao.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,14 +38,17 @@ public class updateStudentTableController {
     @FXML
     private Label noti;
     private User user;
-    private boolean update = false;
 
-    public void setUpdate(boolean u)
+    private Clazz curClazz;
+
+    public void setUpdate(Clazz tmp)
     {
-        update = u;
+        curClazz=tmp;
     }
+    private int gen;
     public void setTextField(User user)
     {
+
         idText.setDisable(true);
         idText.setText(user.getId());
         if(user.getName() != null)
@@ -58,10 +62,12 @@ public class updateStudentTableController {
         if(user.getGender()==1) {
             male.setSelected(true);
             female.setSelected(false);
+            gen=1;
         }
         else {
             female.setSelected(true);
             male.setSelected(false);
+            gen=0;
         }
     }
 
@@ -87,13 +93,23 @@ public class updateStudentTableController {
             if(male.isSelected()) {
                 female.setSelected(false);
                 user.setGender(1);
+                if(gen==0) {
+                    curClazz.setMale(curClazz.getMale() + 1);
+                    curClazz.setFemale((curClazz.getFemale()-1));
+                }
             }
             else {
                 male.setSelected(false);
                 user.setGender(0);
+                if(gen==1)
+                {
+                curClazz.setFemale((curClazz.getFemale()+1));
+                curClazz.setMale(curClazz.getMale() - 1);
+                }
             }
         }
             UserDAO.updateUser(user);
+            CLassDAO.updateClass(curClazz);
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.close();
 
