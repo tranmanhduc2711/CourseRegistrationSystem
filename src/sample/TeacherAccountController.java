@@ -117,12 +117,14 @@ public class TeacherAccountController  implements Initializable  {
                 } else if (female.isSelected()) {
                     tmp.setGender(0);
                 }
-                tmp.setRole(0);
+                tmp.setRole(1);
                 tmp.setUsername(userName.getText());
                 tmp.setPassword(passWord.getText());
                 teacherList.add(tmp);
                 list_user.add(tmp);
                 UserDAO.add_Teacher(tmp);
+
+
             }
         }
     }
@@ -140,6 +142,7 @@ public class TeacherAccountController  implements Initializable  {
     }
 
     public void Refresh() {
+        list_user= UserDAO.getAllUserTeacher();
         if(teacherList != null)
             teacherList.clear();
         list_user= UserDAO.getAllUserTeacher();

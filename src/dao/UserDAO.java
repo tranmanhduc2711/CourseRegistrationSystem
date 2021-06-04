@@ -18,7 +18,7 @@ public class UserDAO {
         List<User> user = null;
         try
         {
-            final String hql = "from User where User.role=1 ";
+            final String hql = "from User where role=1 ";
             Query query = session.createQuery(hql);
             user=query.getResultList();
         }
@@ -38,7 +38,7 @@ public class UserDAO {
         List<User> teacher_users=null;
 
         try{
-            final String hql= " from User where User.role=0  ";
+            final String hql= " from User where role=0  ";
             Query query=session.createQuery(hql);
 
             teacher_users= query.getResultList();

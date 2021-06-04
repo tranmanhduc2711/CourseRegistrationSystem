@@ -43,14 +43,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <AnchorPane fx:id="class_button" onMouseClicked="#click_accButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #c0c0c0; -fx-border-width: 10px 5px 5px 5px;">
+                <AnchorPane fx:id="class_button" onMouseClicked="#click_classButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #c0c0c0; -fx-border-width: 10px 5px 5px 5px;">
                     <children>
                         <ImageView fitHeight="104.0" fitWidth="141.0" layoutX="81.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../classroom-icon.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="class_label" alignment="CENTER" layoutX="46.0" layoutY="139.0" prefHeight="40.0" prefWidth="164.0" text="Quản lí lớp học">
+                        <Label fx:id="class_label" onMouseClicked="#click_classButton" alignment="CENTER" layoutX="46.0" layoutY="139.0" prefHeight="40.0" prefWidth="164.0" text="Quản lí lớp học">
                             <font>
                                 <Font name="Tahoma" size="24.0" />
                             </font>

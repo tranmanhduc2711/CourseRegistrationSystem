@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Courseregistrationsession {
     private int id;
     private Date start;
+    private int semester_id;
     private Date end;
 
     @Id

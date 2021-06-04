@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -17,8 +18,8 @@
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="back_but" layoutX="873.0" layoutY="14.0" mnemonicParsing="false" text="QUAY LẠI" />
-            <Button layoutX="855.0" layoutY="64.0" mnemonicParsing="false" text="ĐĂNG XUẤT" />
+            <Button fx:id="back_but" layoutX="873.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="QUAY LẠI" />
+            <Button layoutX="855.0" layoutY="64.0" mnemonicParsing="false" onAction="#logOut" text="ĐĂNG XUẤT" />
          </children>
       </AnchorPane>
       <TabPane prefHeight="598.0" prefWidth="972.0" tabClosingPolicy="UNAVAILABLE">
@@ -37,12 +38,12 @@
                                        </image>
                                     </ImageView>
                                     <TextField fx:id="search_bar" layoutX="80.0" layoutY="15.0" prefHeight="41.0" prefWidth="363.0" promptText="Nhập mã số..." />
-                                    <Button fx:id="search_but" layoutX="443.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="Tìm">
+                                    <Button fx:id="search_but" layoutX="443.0" layoutY="15.0" mnemonicParsing="false" onAction="#search_student" prefHeight="41.0" prefWidth="85.0" text="Tìm">
                                        <font>
                                           <Font name="Tahoma" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="del_but" layoutX="656.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="85.0" text="Xóa">
+                                    <Button fx:id="del_but" layoutX="656.0" layoutY="15.0" mnemonicParsing="false" onAction="#delete" prefHeight="41.0" prefWidth="85.0" text="Xóa">
                                        <font>
                                           <Font name="Tahoma" size="18.0" />
                                        </font>
@@ -50,6 +51,11 @@
                                     <Button fx:id="refresh_but" layoutX="545.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="Refresh">
                                        <font>
                                           <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="update_but" layoutX="763.0" layoutY="15.0" mnemonicParsing="false" onAction="#update" prefHeight="41.0" prefWidth="182.0" text="Cập nhật thông tin">
+                                       <font>
+                                          <Font size="18.0" />
                                        </font>
                                     </Button>
                                  </children>
@@ -74,9 +80,68 @@
                   </VBox>
                </content>
           </Tab>
-          <Tab text="Thêm sinh viên">
+          <Tab fx:id="addTab" onSelectionChanged="#addTabSelected" text="Thêm sinh viên">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="147.0" layoutY="72.0" prefHeight="31.0" prefWidth="151.0" text="Tên sinh viên:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nameText" layoutX="342.0" layoutY="72.0" prefHeight="23.0" prefWidth="327.0" />
+                        <Label layoutX="145.0" layoutY="123.0" text="Mã số :">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="idText" layoutX="342.0" layoutY="123.0" prefHeight="23.0" prefWidth="327.0" />
+                        <Label layoutX="147.0" layoutY="182.0" text="Ngày sinh:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="birthDay" layoutX="342.0" layoutY="182.0" />
+                        <Label layoutX="147.0" layoutY="244.0" text="Phái:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="male" layoutX="342.0" layoutY="251.0" mnemonicParsing="false" onAction="#check_gender" text="Nam" />
+                        <CheckBox fx:id="female" layoutX="536.0" layoutY="251.0" mnemonicParsing="false" onAction="#check_gender" text="Nữ" />
+                        <Label layoutX="147.0" layoutY="298.0" text="Tên đăng nhập:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="userName" layoutX="342.0" layoutY="298.0" prefHeight="23.0" prefWidth="327.0" />
+                        <Label layoutX="145.0" layoutY="343.0" text="Mật khẩu:">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="passWord" layoutX="342.0" layoutY="343.0" prefHeight="23.0" prefWidth="327.0" />
+                        <Button fx:id="add_button" layoutX="669.0" layoutY="445.0" mnemonicParsing="false" onAction="#add_student" prefHeight="46.0" prefWidth="154.0" text="Thêm">
+                           <font>
+                              <Font name="Tahoma" size="24.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="alert1" layoutX="145.0" layoutY="414.0" text="Thiếu thông tin!" textFill="#fc0000">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="alert2" layoutX="695.0" layoutY="404.0" text="Sinh viên đã tồn tại!" textFill="#fa0000">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="noti" layoutX="145.0" layoutY="468.0" text="Thêm thành công!">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

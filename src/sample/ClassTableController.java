@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -42,11 +43,11 @@ public class ClassTableController implements Initializable {
     @FXML
     private TextField idText;
     @FXML
-    private TextField totalText;
+    private Label alert1;
     @FXML
-    private TextField maleText;
+    private Label alert2;
     @FXML
-    private TextField femaleText;
+    private Label noti;
 
     private ObservableList<Clazz> classList= FXCollections.observableArrayList();
     List<Clazz> data;
@@ -83,9 +84,9 @@ public class ClassTableController implements Initializable {
     }
     public void addTabSelected() {
         idText.clear();
-        totalText.clear();
-        maleText.clear();
-        femaleText.clear();
+        alert2.setVisible(false);
+        alert1.setVisible(false);
+        noti.setVisible(false);
     }
 
     public void showClassInfo(ActionEvent e) throws IOException {
@@ -95,9 +96,82 @@ public class ClassTableController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("classInfoTable.fxml"));
         loader.load();
         ClassInfoTableController controller = loader.getController();
+        controller.setUsernameText(t);
         Scene scene = new Scene(loader.getRoot());
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void add_class(ActionEvent e)
+    {
+        alert2.setVisible(false);
+        alert1.setVisible(false);
+        noti.setVisible(false);
+       data= CLassDAO.getAllClass();
+        if (idText.getText().isBlank() | idText.getText().isBlank()) {
+            alert1.setVisible(true);
+            alert2.setVisible(false);
+        } else {
+            alert1.setVisible(false);
+            alert2.setVisible(false);
+
+                for (Clazz item : data) {
+                    if (item.getId().equals(idText) ) {
+                        alert2.setVisible(true);
+                        break;
+                    }
+                }
+                Clazz tmp = new Clazz();
+                tmp.setId(idText.getText());
+                tmp.setTotal(0);
+                tmp.setMale(0);
+                tmp.setFemale(0);
+                classList.add(tmp);
+                data.add(tmp);
+                CLassDAO.add_Class(tmp);
+                noti.setVisible(true);
+        }
+    }
+    @FXML
+    public void search_class(ActionEvent e)
+    {
+        data=CLassDAO.getAllClass();
+        String res = search_bar.getText();
+        if (res.isEmpty() | res.isBlank()) {
+        } else {
+            classList.clear();
+            for (Clazz item : data) {
+                if (item.getId().contains(res)) {
+                    classList.add(item);
+                }
+            }
+            id_column.setCellValueFactory(new PropertyValueFactory<Clazz, String>("id"));
+            total_column.setCellValueFactory(new PropertyValueFactory<Clazz, Integer>("total"));
+            male_column.setCellValueFactory(new PropertyValueFactory<Clazz, Integer>("male"));
+            female_column.setCellValueFactory(new PropertyValueFactory<Clazz, Integer>("female"));
+            table_list.setItems(classList);
+        }
+    }
+    @FXML
+    public void back(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherFeature.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    @FXML
+    public void logOut(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("logIn.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }
