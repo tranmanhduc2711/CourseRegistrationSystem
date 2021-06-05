@@ -23,7 +23,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("classTable.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("TeacherFeature.fxml"));
 
             primaryStage.setTitle("PORTAL HCMUS");
             Scene login_Scene=new Scene(root);

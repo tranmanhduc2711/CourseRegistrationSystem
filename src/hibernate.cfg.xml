@@ -11,20 +11,28 @@
     
     <mapping class="sample.Clazz"/>
     <mapping resource="Clazz.hbm.xml"/>
+
     <mapping class="sample.Classinfo"/>
     <mapping resource="Classinfo.hbm.xml"/>
-    <mapping class="sample.Course"/>
+
+    <mapping class="sample.CoursePOJO"/>
     <mapping resource="Course.hbm.xml"/>
-    <mapping class="sample.Courseinfo"/>
+
+    <mapping class="sample.CourseinfoPOJO"/>
     <mapping resource="Courseinfo.hbm.xml"/>
+
     <mapping resource="Courseregistrationsession.hbm.xml"/>
     <mapping class="sample.Courseregistrationsession"/>
+
     <mapping class="sample.Semester"/>
     <mapping resource="Semester.hbm.xml"/>
+
     <mapping class="sample.Session"/>
     <mapping resource="Session.hbm.xml"/>
+
     <mapping class="sample.Subject"/>
     <mapping resource="Subject.hbm.xml"/>
+
     <mapping class="sample.User"/>
     <mapping resource="User.hbm.xml"/>
     <!-- <property name="connection.username"/> -->

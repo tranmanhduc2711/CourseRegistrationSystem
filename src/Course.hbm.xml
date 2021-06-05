@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="sample.Course" table="course" schema="portal">
+    <class name="sample.CoursePOJO" table="course" schema="portal">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>
@@ -14,9 +14,7 @@
         <property name="semester">
             <column name="semester" sql-type="int" not-null="true"/>
         </property>
-        <property name="credits">
-            <column name="credits" sql-type="int" not-null="true"/>
-        </property>
+
         <property name="teacher">
             <column name="teacher" sql-type="char(30)" length="30" not-null="true"/>
         </property>

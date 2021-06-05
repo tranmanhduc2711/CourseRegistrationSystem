@@ -9,17 +9,17 @@ import java.util.Objects;
 
 @Entity
 public class Session {
-    private int id;
+    private String id;
     private Time start;
     private Time end;
 
     @Id
     @Column(name = "id", nullable = false)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

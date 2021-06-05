@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Course {
+public class CoursePOJO {
     private int id;
     private String subjectId;
     private Integer semester;
@@ -46,7 +46,6 @@ public class Course {
     public void setSemester(Integer semester) {
         this.semester = semester;
     }
-
 
 
 
@@ -104,7 +103,7 @@ public class Course {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
+        CoursePOJO course = (CoursePOJO) o;
         return id == course.id && Objects.equals(subjectId, course.subjectId) && Objects.equals(semester, course.semester)  && Objects.equals(teacher, course.teacher) && Objects.equals(room, course.room) && Objects.equals(dayOfWeek, course.dayOfWeek) && Objects.equals(sessionId, course.sessionId) && Objects.equals(max, course.max);
     }
 

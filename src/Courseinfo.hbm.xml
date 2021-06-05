@@ -4,15 +4,30 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="sample.Courseinfo" table="courseinfo" schema="portal">
+    <class name="sample.CourseinfoPOJO" table="courseinfo" schema="portal">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>
         <property name="courseId">
             <column name="course_id" sql-type="int" not-null="true"/>
         </property>
-        <property name="userId">
-            <column name="user_id" sql-type="char(8)" length="8" not-null="true"/>
+        <property name="subject_name">
+            <column name="subject_name" sql-type="nchar(30)" length="10" not-null="true"/>
+        </property>
+        <property name="teacher">
+            <column name="teacher" sql-type="nchar(30)" not-null="true"/>
+        </property>
+        <property name="room">
+            <column name="room" sql-type="char(5)" not-null="true"/>
+        </property>
+        <property name="dayOfWeek">
+            <column name="dayOfWeek" sql-type="char(3)" not-null="true"/>
+        </property>
+        <property name="session_id">
+            <column name="session_id" sql-type="int" not-null="true"/>
+        </property>
+        <property name="max">
+            <column name="max" sql-type="int" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

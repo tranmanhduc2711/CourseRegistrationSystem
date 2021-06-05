@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Courseregistrationsession {
     private int id;
     private Date start;
-    private int semester_id;
+    private Integer semester_id;
     private Date end;
 
     @Id
@@ -34,6 +34,14 @@ public class Courseregistrationsession {
         this.start = start;
     }
 
+    public Integer getSemester_id()
+    {
+        return semester_id;
+    }
+    public void setSemester_id(Integer s)
+    {
+        this.semester_id=s;
+    }
     @Basic
     @Column(name = "end", nullable = true)
     public Date getEnd() {

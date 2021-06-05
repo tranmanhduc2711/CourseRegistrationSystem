@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,8 +16,10 @@ import javafx.event.ActionEvent;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class TeacherFeatureController {
+public class TeacherFeatureController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -41,8 +44,11 @@ public class TeacherFeatureController {
 
     @FXML private Button account_info;
     @FXML private Button log_out;
+    @FXML
+    private Label alert;
 
     public void click_accButton(MouseEvent event) throws IOException {
+        alert.setVisible(false);
         FXMLLoader loader= new FXMLLoader(getClass().getResource("TeacherUserTable.fxml"));
         root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -52,6 +58,7 @@ public class TeacherFeatureController {
         stage.show();
     }
     public void click_subjectButton(MouseEvent event) throws  IOException{
+        alert.setVisible(false);
         FXMLLoader loader= new FXMLLoader(getClass().getResource("subjectTable.fxml"));
         root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -61,6 +68,7 @@ public class TeacherFeatureController {
         stage.show();
     }
     public void click_semesterButton(MouseEvent event) throws IOException{
+        alert.setVisible(false);
         FXMLLoader loader= new FXMLLoader(getClass().getResource("SemesterTable.fxml"));
         root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -71,6 +79,7 @@ public class TeacherFeatureController {
     }
     public void click_classButton(MouseEvent event) throws IOException
     {
+        alert.setVisible(false);
         FXMLLoader loader= new FXMLLoader(getClass().getResource("classTable.fxml"));
         root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -81,7 +90,13 @@ public class TeacherFeatureController {
     }
     public void click_SessionButton(MouseEvent event) throws IOException
     {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("classTable.fxml"));
+        if(Main.currentSemester==null)
+        {
+            alert.setVisible(true);
+            return;
+        }
+        alert.setVisible(false);
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("CourseRegistrationSessionTable.fxml"));
         root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
@@ -91,6 +106,12 @@ public class TeacherFeatureController {
     }
     public void click_CourseButton(MouseEvent event) throws IOException
     {
+        if(Main.currentSemester==null)
+        {
+            alert.setVisible(true);
+            return;
+        }
+        alert.setVisible(false);
         FXMLLoader loader= new FXMLLoader(getClass().getResource("CourseTable.fxml"));
         root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -174,5 +195,8 @@ public class TeacherFeatureController {
     }
 
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        alert.setVisible(false);
+    }
 }

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Courseinfo {
+public class CourseinfoPOJO {
     private int id;
     private Integer courseId;
     private String subject_id ;
@@ -18,6 +18,20 @@ public class Courseinfo {
     private String dayOfWeek;
     private String session_id ;
     private Integer max;
+
+    public CourseinfoPOJO(int id, String id1, String name, Integer credits, String teacher, String room, String dayOfWeek, String toString, Integer max) {
+        courseId=id;
+        subject_id=id1;
+        subject_name=name;
+        this.credits= credits;
+        this.teacher=teacher;
+        this.room=room;
+        this.dayOfWeek=dayOfWeek;
+        this.session_id=toString;
+        this.max=max;
+    }
+
+
     @Id
     @Column(name = "id", nullable = false)
     public int getId() {
@@ -70,7 +84,7 @@ public class Courseinfo {
         this.teacher = t;
     }
 
-    public String getRoom(){return  this.room};
+    public String getRoom(){return  this.room;};
 
     public void setRoom(String r) {
         this.room = r;
@@ -102,8 +116,8 @@ public class Courseinfo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Courseinfo that = (Courseinfo) o;
-        return id == that.id && Objects.equals(courseId, that.courseId) && Objects.equals(subject_id, that.subject_id) && Objects.equals(subject_name, that.subject_name)&&Objects.equals(teacher, that.teacher)&&Objects.equals(credits, that.credits) ;
+        CourseinfoPOJO that = (CourseinfoPOJO) o;
+        return id == that.id && Objects.equals(courseId, that.courseId) && Objects.equals(subject_id, that.subject_id) && Objects.equals(subject_name, that.subject_name)&&Objects.equals(teacher, that.teacher)&&Objects.equals(credits, that.credits)&&Objects.equals(room, that.room)&&Objects.equals(dayOfWeek, that.dayOfWeek)&&Objects.equals(session_id, that.session_id)&&Objects.equals(max, that.max) ;
     }
 
     @Override
@@ -111,3 +125,4 @@ public class Courseinfo {
         return Objects.hash(id, courseId,subject_id,subject_name,credits,teacher,room,dayOfWeek,session_id,max);
     }
 }
+
