@@ -12,7 +12,7 @@
             <column name="subject_id" sql-type="char(10)" length="10" not-null="true"/>
         </property>
         <property name="semester">
-            <column name="semester" sql-type="int" not-null="true"/>
+            <column name="semester_id" sql-type="int" not-null="true"/>
         </property>
 
         <property name="teacher">
@@ -25,7 +25,7 @@
             <column name="dayOfWeek" sql-type="char(3)" length="3" not-null="true"/>
         </property>
         <property name="sessionId">
-            <column name="session_id" sql-type="int" not-null="true"/>
+            <column name="session_id" sql-type="char(3)" not-null="true"/>
         </property>
         <property name="max">
             <column name="max" sql-type="int" not-null="true"/>

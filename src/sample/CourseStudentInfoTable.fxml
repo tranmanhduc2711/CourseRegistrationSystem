@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CourseStudentInfoController">
+   <children>
+      <AnchorPane prefHeight="131.0" prefWidth="841.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label layoutX="34.0" layoutY="66.0" text="THÔNG TIN ĐĂNG KÍ HỌC PHẦN" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="725.0" layoutY="50.0" mnemonicParsing="false" text="QUAY LẠI" />
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="448.0" prefWidth="841.0">
+         <children>
+            <AnchorPane prefHeight="80.0" prefWidth="841.0">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="76.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../search-icon.jpg" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="search_bar" layoutX="77.0" layoutY="21.0" prefHeight="41.0" prefWidth="466.0" promptText="Nhập mã số..." />
+                  <Button fx:id="search_but" layoutX="542.0" layoutY="20.0" mnemonicParsing="false" onAction="#searchTeacher" prefHeight="41.0" prefWidth="98.0" text="Tìm">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="refresh_but" layoutX="663.0" layoutY="22.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="40.0" prefWidth="112.0" text="Refresh">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <ScrollPane prefHeight="370.0" prefWidth="841.0">
+               <content>
+                  <TableView fx:id="table_list" prefHeight="544.0" prefWidth="824.0">
+                    <columns>
+                      <TableColumn fx:id="name_column" prefWidth="168.0" text="Tên sinh viên" />
+                      <TableColumn fx:id="id_column" prefWidth="111.0" text="Mã sinh viên" />
+                        <TableColumn fx:id="subjectId_column" prefWidth="106.0" text="Mã môn" />
+                        <TableColumn fx:id="subjectName_column" prefWidth="129.0" text="Tên môn" />
+                        <TableColumn fx:id="teacher_column" prefWidth="127.0" text="Tên giáo viên" />
+                        <TableColumn fx:id="time_column" prefWidth="181.0" text="Thời gian" />
+                    </columns>
+                  </TableView>
+               </content></ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

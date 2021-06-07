@@ -125,4 +125,5 @@ public class CourseSessionController implements Initializable {
         stage.setResizable(false);
         stage.show();
     }
+
 }

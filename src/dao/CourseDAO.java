@@ -34,7 +34,7 @@ public class CourseDAO {
                         ((CoursePOJO) res.get(i)[0]).getTeacher(),
                         ((CoursePOJO) res.get(i)[0]).getRoom(),
                         ((CoursePOJO) res.get(i)[0]).getDayOfWeek(),
-                        ((Session) res.get(i)[3]).toString(),
+                        ((sample.Session) res.get(i)[3]).toString(),
                         ((CoursePOJO) res.get(i)[0]).getMax()));
             }
         }
@@ -46,5 +46,22 @@ public class CourseDAO {
             session.close();
         }
         return data;
+    }
+
+    public static void addCourse(CoursePOJO course)
+    {
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.save(course);
+            session.getTransaction().commit();
+        }
+        catch(HibernateException e)
+        {
+            System.out.println(e);
+        }
+        finally {
+            session.close();
+        }
     }
 }

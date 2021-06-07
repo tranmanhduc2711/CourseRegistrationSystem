@@ -19,6 +19,8 @@ public class CourseinfoPOJO {
     private String session_id ;
     private Integer max;
 
+    public CourseinfoPOJO()
+    {}
     public CourseinfoPOJO(int id, String id1, String name, Integer credits, String teacher, String room, String dayOfWeek, String toString, Integer max) {
         courseId=id;
         subject_id=id1;

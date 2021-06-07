@@ -48,16 +48,16 @@
                               </AnchorPane>
                               <ScrollPane prefHeight="448.0" prefWidth="667.0">
                                  <content>
-                                    <TableView fx:id="table_list" prefHeight="447.0" prefWidth="981.0">
+                                    <TableView fx:id="table_list" prefHeight="447.0" prefWidth="1008.0">
                                       <columns>
-                                        <TableColumn fx:id="subID_column" prefWidth="107.0" text="Mã môn" />
-                                        <TableColumn fx:id="subName_column" prefWidth="230.0" text="Tên môn" />
-                                          <TableColumn fx:id="credit_column" prefWidth="97.0" text="Số TC" />
-                                          <TableColumn fx:id="teacher_column" prefWidth="204.0" text="GV lí thuyết" />
-                                          <TableColumn fx:id="room_column" minWidth="0.0" text="Phòng" />
-                                          <TableColumn fx:id="dayOfWeek_column" prefWidth="93.0" text="Thứ" />
-                                          <TableColumn fx:id="session_column" minWidth="0.0" prefWidth="82.0" text="Ca" />
-                                          <TableColumn fx:id="max_column" prefWidth="86.0" text="Tối đa" />
+                                        <TableColumn fx:id="subID_column" prefWidth="107.0" style="-fx-alignment: CENTER;" text="Mã môn" />
+                                        <TableColumn fx:id="subName_column" prefWidth="193.0" style="-fx-alignment: CENTER;" text="Tên môn" />
+                                          <TableColumn fx:id="credit_column" prefWidth="78.0" style="-fx-alignment: CENTER;" text="Số TC" />
+                                          <TableColumn fx:id="teacher_column" prefWidth="217.0" style="-fx-alignment: CENTER;" text="GV lí thuyết" />
+                                          <TableColumn fx:id="room_column" minWidth="0.0" prefWidth="76.0" style="-fx-alignment: CENTER;" text="Phòng" />
+                                          <TableColumn fx:id="dayOfWeek_column" prefWidth="97.0" style="-fx-alignment: CENTER;" text="Thứ" />
+                                          <TableColumn fx:id="session_column" minWidth="0.0" prefWidth="157.0" style="-fx-alignment: CENTER;" text="Ca" />
+                                          <TableColumn fx:id="max_column" prefWidth="82.0" style="-fx-alignment: CENTER;" text="Tối đa" />
                                       </columns>
                                     </TableView>
                                  </content>
@@ -112,7 +112,7 @@
                               <TextField fx:id="roomText" layoutX="324.0" layoutY="233.0" prefHeight="23.0" prefWidth="327.0" />
                               <TextField fx:id="sessionText" layoutX="324.0" layoutY="332.0" prefHeight="23.0" prefWidth="327.0" />
                               <TextField fx:id="dowText" layoutX="324.0" layoutY="283.0" prefHeight="23.0" prefWidth="327.0" />
-                              <Button layoutX="668.0" layoutY="438.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" text="Thêm">
+                              <Button layoutX="668.0" layoutY="438.0" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="154.0" text="Thêm">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>

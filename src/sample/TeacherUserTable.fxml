@@ -21,9 +21,9 @@
                      </font>
                   </Label>
                   <Button fx:id="logout_but" layoutX="873.0" layoutY="46.0" mnemonicParsing="false" onAction="#setLogout_but" text="QUAY LẠI" />
-                  <ImageView fitHeight="115.0" fitWidth="123.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="115.0" fitWidth="121.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../circle-cropped.png" />
+                        <Image url="@../teacherAccount-icon.png" />
                      </image>
                   </ImageView>
                </children>

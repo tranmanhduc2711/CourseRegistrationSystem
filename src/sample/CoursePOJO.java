@@ -14,7 +14,7 @@ public class CoursePOJO {
     private String teacher;
     private String room;
     private String dayOfWeek;
-    private Integer sessionId;
+    private String sessionId;
     private Integer max;
 
     @Id
@@ -81,11 +81,11 @@ public class CoursePOJO {
 
     @Basic
     @Column(name = "session_id", nullable = true)
-    public Integer getSessionId() {
+    public String getSessionId() {
         return sessionId;
     }
 
-    public void setSessionId(Integer sessionId) {
+    public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
     }
 

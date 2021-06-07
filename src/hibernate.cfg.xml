@@ -35,6 +35,8 @@
 
     <mapping class="sample.User"/>
     <mapping resource="User.hbm.xml"/>
+
+
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

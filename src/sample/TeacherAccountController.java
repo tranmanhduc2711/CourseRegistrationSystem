@@ -156,7 +156,7 @@ public class TeacherAccountController  implements Initializable  {
         gender_column.setCellValueFactory(new PropertyValueFactory<User, Integer>("gender"));
         username_column.setCellValueFactory(new PropertyValueFactory<User, String>("username"));
         table_list.setItems(teacherList);
-        System.out.println("1");
+
     }
 
     public void addTabSelected() {
