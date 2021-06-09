@@ -5,18 +5,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class CourseTableController implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     private TableView<CourseinfoPOJO> table_list;
     @FXML
@@ -105,4 +115,33 @@ public class CourseTableController implements Initializable {
             CourseDAO.addCourse(course);
         }
     }
+    @FXML
+    private void showStudentInCourse(ActionEvent e) throws IOException {
+        CourseinfoPOJO info = table_list.getSelectionModel().getSelectedItem();
+        if(info==null)
+            return;
+        CourseStudentInfoController.currentCourse=info;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseStudentInfoTable.fxml"));
+        loader.load();
+        CourseStudentInfoController controller = loader.getController();
+
+        Scene scene = new Scene(loader.getRoot());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    @FXML
+    public void back(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherFeature.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+
 }

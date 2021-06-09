@@ -17,7 +17,7 @@
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="892.0" layoutY="38.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="88.0" text="Quay lại" />
+            <Button onAction="#back" layoutX="892.0" layoutY="38.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="88.0" text="Quay lại" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="552.0" prefWidth="887.0">
@@ -43,7 +43,7 @@
                                     </Button>
                                     <Button layoutX="520.0" layoutY="16.0" mnemonicParsing="false" onAction="#refresh" prefHeight="41.0" prefWidth="105.0" text="REFRESH" />
                                     <Button layoutX="655.0" layoutY="15.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="100.0" text="XÓA" />
-                                    <Button layoutX="782.0" layoutY="16.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="113.0" text="THÔNG TIN" />
+                                    <Button onAction="#showStudentInCourse" layoutX="782.0" layoutY="16.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="113.0" text="THÔNG TIN" />
                                  </children>
                               </AnchorPane>
                               <ScrollPane prefHeight="448.0" prefWidth="667.0">

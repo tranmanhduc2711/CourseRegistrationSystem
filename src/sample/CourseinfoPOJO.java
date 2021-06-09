@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.CheckBox;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,9 +20,22 @@ public class CourseinfoPOJO {
     private String dayOfWeek;
     private String session_id ;
     private Integer max;
+    private CheckBox select;
+
+    public CheckBox getSelect() {
+        return select;
+    }
+
+    public void setSelect(CheckBox select) {
+        this.select = select;
+    }
+
+
 
     public CourseinfoPOJO()
-    {}
+    {
+        this.select= new CheckBox();
+    }
     public CourseinfoPOJO(int id, String id1, String name, Integer credits, String teacher, String room, String dayOfWeek, String toString, Integer max) {
         courseId=id;
         subject_id=id1;
@@ -31,6 +46,7 @@ public class CourseinfoPOJO {
         this.dayOfWeek=dayOfWeek;
         this.session_id=toString;
         this.max=max;
+        this.select= new CheckBox();
     }
 
 

@@ -58,14 +58,37 @@ public class StudentDAO {
     public static List<User> getAllStudentInCourse(Integer courseId)
     {
         session = HibernateUtil.getSessionFactory().openSession();
+        List<User> student=null ;
+        try
+        {
+            final String hql = "select s from User s, StudentInCourse a where s.id = a.student_id " +
+                    "and a.course_id = '" + courseId+"' " +
+                    "and role = 1 ";
+
+            Query query = session.createQuery(hql);
+            student=query.getResultList();
+        }
+        catch (HibernateException e)
+        {
+            System.out.println(e);
+        }
+        finally {
+            session.close();
+        }
+        return student;
+    }
+    public static List<User> getAllStudentInCourseById(Integer courseId, String stuId)
+    {
+        session = HibernateUtil.getSessionFactory().openSession();
         List<User> student = null;
         try
         {
-            final String hql = "select s from User s, Attend a where s.id = a.studentId " +
-                    "and a.courseId = '" + courseId+"' " +
-                    "and s.roleId = 'STU' ";
+            final String hql = "select s from User s, StudentInCourse a where s.id = a.student_id " +
+                    "and a.course_id = '" + courseId+"' " +
+                    "and s.role = 1 " +
+                    "and s.id like '%" + stuId + "%'";
             Query query = session.createQuery(hql);
-            student=query.list();
+            student=query.getResultList();
         }
         catch (HibernateException e)
         {

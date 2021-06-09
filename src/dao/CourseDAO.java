@@ -64,4 +64,38 @@ public class CourseDAO {
             session.close();
         }
     }
+    public static void addAttend(StudentInCourse sic)
+    {
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.save(sic);
+            session.getTransaction().commit();
+        }
+        catch(HibernateException e)
+        {
+            System.out.println(e);
+        }
+        finally {
+            session.close();
+        }
+    }
+
+    public static void deleteAttend(StudentInCourse sic)
+    {
+        session = HibernateUtil.getSessionFactory().openSession();
+        try
+        {
+            session.beginTransaction();
+            session.delete(sic);
+            session.getTransaction().commit();
+        }
+        catch (HibernateException e)
+        {
+            System.out.println(e);
+        }
+        finally {
+            session.close();
+        }
+    }
 }

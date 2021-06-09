@@ -128,10 +128,13 @@ public class SemesterTableController implements Initializable {
         refresh();
     }
     @FXML
-    public void setSemester()
+    public void setSemester() throws IOException
     {
         Semester t = table_list.getSelectionModel().getSelectedItem();;
         Main.currentSemester=t;
+        System.out.print(Main.currentSemester.getId());
+        SemesterDAO.writeFile(Main.currentSemester.getId());
+
     }
     @FXML
     public void back(ActionEvent e) throws IOException

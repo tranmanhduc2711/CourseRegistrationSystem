@@ -12,6 +12,10 @@ import java.util.List;
 
 public class UserDAO {
     private static Session session;
+    public static void init()
+    {
+        session = HibernateUtil.getSessionFactory().openSession();
+    }
     public static List<User> getAllUserStudent()
     {
         session = HibernateUtil.getSessionFactory().openSession();

@@ -8,21 +8,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentFeatureController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentFeatureController">
    <children>
-      <AnchorPane prefHeight="173.0" prefWidth="690.0" style="-fx-background-color: black;">
+      <AnchorPane prefHeight="170.0" prefWidth="690.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="135.0" fitWidth="181.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="496.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: balck;" text="Thông tin tài khoản" textFill="WHITE">
-               <font>
-                  <Font name="Tahoma" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="569.0" layoutY="84.0" mnemonicParsing="false" style="-fx-background-color: balck;" text="Đăng xuất" textFill="WHITE">
+            <Button layoutX="569.0" layoutY="63.0" mnemonicParsing="false" onAction="#setLogout_but" style="-fx-background-color: balck;" text="Đăng xuất" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
@@ -31,42 +26,28 @@
       </AnchorPane>
       <HBox prefHeight="309.0" prefWidth="690.0">
          <children>
-            <AnchorPane fx:id="course_but" prefHeight="274.0" prefWidth="230.0" style="-fx-background-color: white; -fx-border-color: #c0c0c0; -fx-border-width: 0 0 5px 5px;">
+            <AnchorPane fx:id="course_but" onMouseClicked="#click_courseButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="267.0" prefWidth="343.0" style="-fx-background-color: white; -fx-border-color: #c0c0c0; -fx-border-width: 5px;">
                <children>
-                  <ImageView fitHeight="123.0" fitWidth="133.0" layoutX="49.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="123.0" fitWidth="133.0" layoutX="109.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../book.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="27.0" layoutY="199.0" prefHeight="34.0" prefWidth="167.0" text="Đăng kí học phần">
+                  <Label fx:id="regis_label" alignment="CENTER" layoutX="87.0" layoutY="201.0" prefHeight="34.0" prefWidth="167.0" text="Đăng kí học phần">
                      <font>
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="courseList_but" prefHeight="293.0" prefWidth="230.0" style="-fx-border-color: #c0c0c0; -fx-border-width: 0 0 5px 5px;">
+            <AnchorPane fx:id="courseList_but" onMouseClicked="#click_courseListButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="267.0" prefWidth="351.0" style="-fx-border-color: #c0c0c0; -fx-border-width: 5px;">
                <children>
-                  <ImageView fitHeight="135.0" fitWidth="149.0" layoutX="41.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="135.0" fitWidth="149.0" layoutX="115.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../list.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="36.0" layoutY="191.0" prefHeight="52.0" prefWidth="146.0" text="Đã đăng kí" textAlignment="CENTER">
-                     <font>
-                        <Font name="Tahoma" size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="230.0" style="-fx-border-color: #c0c0c0; -fx-border-width: 0 0 5px 5px;">
-               <children>
-                  <ImageView fitHeight="135.0" fitWidth="146.0" layoutX="45.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../delete.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="52.0" layoutY="205.0" text="Xóa học phần">
+                  <Label fx:id="list_label" alignment="CENTER" contentDisplay="BOTTOM" layoutX="110.0" layoutY="191.0" prefHeight="52.0" prefWidth="146.0" text="Đã đăng kí" textAlignment="CENTER">
                      <font>
                         <Font name="Tahoma" size="20.0" />
                      </font>

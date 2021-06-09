@@ -9,11 +9,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 
 public class Main extends Application {
      public static Semester currentSemester;
+    static
+    {
+        int sem = 0;
+        try {
+            sem = SemesterDAO.readFileSemester();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.print(sem);
+        if(sem == -1)
+            currentSemester = null;
+        else
+            currentSemester = SemesterDAO.getSemesterById(sem);
+    }
      public Semester getCurrentSemester()
      {
          return currentSemester;
@@ -23,7 +38,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TeacherFeature.fxml"));
+            UserDAO.init();
+            Parent root = FXMLLoader.load(getClass().getResource("logIn.fxml"));
 
             primaryStage.setTitle("PORTAL HCMUS");
             Scene login_Scene=new Scene(root);
