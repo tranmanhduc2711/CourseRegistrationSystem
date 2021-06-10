@@ -27,7 +27,7 @@ public class Main extends Application {
         if(sem == -1)
             currentSemester = null;
         else
-            currentSemester = SemesterDAO.getSemesterById(sem);
+            currentSemester = SemesterDAO.getSemesterById(1);
     }
      public Semester getCurrentSemester()
      {

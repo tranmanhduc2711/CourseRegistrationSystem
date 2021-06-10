@@ -19,9 +19,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentFeatureController   {
-   // private Stage stage;
-   // private Scene scene;
-   // private Parent root;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
     private AnchorPane course_but;
     @FXML
@@ -31,43 +31,37 @@ public class StudentFeatureController   {
     @FXML
     private Label  list_label;
     private User currentStudent;
-    private Semester currentSem;
 
 
-    public void setUser(User user) throws IOException {
+
+    public void setUser(User user)  {
         currentStudent=user;
+    }
 
-    }
-    private  void setCurrentSemester() throws IOException
-    {
-        int sem = SemesterDAO.readFileSemester();
-        System.out.print(sem);
-        if(sem == -1)
-            currentSem = null;
-        else
-            currentSem = SemesterDAO.getSemesterById(sem);
-    }
     public void click_courseButton(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentRegisterCourse.fxml"));
-        loader.load();
+        root=loader.load();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
         StudentRegisterCourseController controller = loader.getController();
-        controller.setUser(currentStudent,currentSem);
-        Scene scene = new Scene(loader.getRoot());
-        Stage stage = new Stage();
+        controller.setUser(currentStudent);
+        scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
 
     }
     public void click_courseListButton(MouseEvent event) throws IOException {
-
-//        FXMLLoader loader= new FXMLLoader(getClass().getResource("TeacherUserTable.fxml"));
-//        root=loader.load();
-//        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
-//        scene=new Scene(root);
-//        stage.setScene(scene);
-//        stage.setResizable(false);
-//        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StudentRegistedList.fxml"));
+        System.out.println(currentStudent.getName());
+        root=loader.load();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        StudentRegistedListController controller = loader.getController();
+        controller.setUserCurrent(currentStudent);
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
     public void mouseEnter(MouseEvent e) throws IOException {
         if(e.getSource()==course_but) {

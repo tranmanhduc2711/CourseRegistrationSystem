@@ -5,13 +5,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,12 +58,14 @@ public class StudentRegisterCourseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//
         refresh();
     }
     @FXML
     private void refresh()
     {
         courseList.clear();
+        System.out.println(Main.currentSemester.getId());
         data = CourseDAO.getAllCourseInSem(Main.currentSemester.getId());
         if(isRegisted != null)
         {
@@ -95,57 +100,63 @@ public class StudentRegisterCourseController implements Initializable {
         }
         return selectedCourse;
     }
-    public void setUser(User user,Semester sem)
+    public void setUser(User user)
     {
         currentStudent=user;
-        Main.currentSemester=sem;
+        isRegisted = CourseDAO.getAllCourseOfStudent(Main.currentSemester.getId(),currentStudent.getId());
+        allCourse = CourseDAO.getAllInSem(Main.currentSemester.getId());
+
     }
 
     @FXML
     public void register(ActionEvent e)
     {
         List<CourseinfoPOJO> selected = getSelected();
-        for(int i =0;i<selected.size()-1;i++){
-            //Kiểm tra các học phần đc chọn hợp lệ
-            for(int j = i+1;j<selected.size();j++)
-            {
-                if(selected.get(i).getSubject_id().compareTo(selected.get(j).getSubject_id())==0 || (selected.get(i).getDayOfWeek().compareTo(selected.get(j).getDayOfWeek())==0 && selected.get(i).getSession_id().compareTo(selected.get(j).getSession_id())==0))
-                {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Học phần không hợp lệ!");
-                    alert.showAndWait();
-                    return;
-                }
-            }
-            //Kiểm tra học phần đã đk và hp đc chọn hợp lệ
-            for(CourseinfoPOJO j : isRegisted)
-            {
-                if(selected.get(i).getSubject_id().compareTo(j.getSubject_id())==0 || (selected.get(i).getDayOfWeek().compareTo(j.getDayOfWeek())==0 && selected.get(i).getSession_id().compareTo(j.getSession_id())==0))
-                {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Học phần không hợp lệ!");
-                    alert.showAndWait();
-                    return;
-                }
-            }
-        }
+//        for(int i =0;i<selected.size()-1;i++){
+//            //Kiểm tra các học phần đc chọn hợp lệ
+//            for(int j = i+1;j<selected.size();j++)
+//            {
+//                if(selected.get(i).getSubject_id().compareTo(selected.get(j).getSubject_id())==0 || (selected.get(i).getDayOfWeek().compareTo(selected.get(j).getDayOfWeek())==0 && selected.get(i).getSession_id().compareTo(selected.get(j).getSession_id())==0))
+//                {
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setHeaderText(null);
+//                    alert.setContentText("Học phần không hợp lệ!");
+//                    alert.showAndWait();
+//                    return;
+//                }
+//            }
+//            //Kiểm tra học phần đã đk và hp đc chọn hợp lệ
+//            for(CourseinfoPOJO j : isRegisted)
+//            {
+//                if(selected.get(i).getSubject_id().compareTo(j.getSubject_id())==0 || (selected.get(i).getDayOfWeek().compareTo(j.getDayOfWeek())==0 && selected.get(i).getSession_id().compareTo(j.getSession_id())==0))
+//                {
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setHeaderText(null);
+//                    alert.setContentText("Học phần không hợp lệ!");
+//                    alert.showAndWait();
+//                    return;
+//                }
+//            }
+//        }
         for(CourseinfoPOJO i : selected)
         {
             isRegisted.add(i);
-//            for(CoursePOJO j : allCourse)
-//            {
-//                if(i.getCourseId().equals(j.getId())){
-//                    j.setCurrent(j.getCurrent()+1);
-//                    CourseDAO.updateCourse(j);
-//                }
-//            }
             StudentInCourse attend = new StudentInCourse();
             attend.setStudent_id(currentStudent.getId());
             attend.setCourse_id(i.getCourseId());
             CourseDAO.addAttend(attend);
         }
-        refresh();
+
+    }
+
+    @FXML
+    public void back(ActionEvent e) throws IOException {
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("StudentFeatureTable.fxml"));
+        root=loader.load();
+        stage=(Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }

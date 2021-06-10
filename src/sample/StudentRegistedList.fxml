@@ -7,43 +7,43 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="1224.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentRegisterCourseController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentRegistedListController">
    <children>
       <AnchorPane prefHeight="112.0" prefWidth="935.0" style="-fx-background-color: BLACK;">
          <children>
-            <Label layoutX="54.0" layoutY="41.0" text="ĐĂNG KÍ HỌC PHẦN" textFill="WHITE">
+            <Label layoutX="54.0" layoutY="41.0" text="HỌC PHẦN ĐÃ ĐĂNG KÍ" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="1117.0" layoutY="41.0" mnemonicParsing="false" onAction="#back" text="QUAY LẠI" />
+            <Button layoutX="1016.0" layoutY="41.0" mnemonicParsing="false" text="QUAY LẠI" />
             <Label fx:id="alert" layoutX="606.0" layoutY="46.0" text="Label" textFill="RED" visible="false">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
       <AnchorPane prefHeight="501.0" prefWidth="935.0">
          <children>
-            <ScrollPane prefHeight="501.0" prefWidth="1071.0">
+            <ScrollPane prefHeight="501.0" prefWidth="988.0">
                <content>
-                  <TableView fx:id="table_list" prefHeight="641.0" prefWidth="1052.0">
-                    <columns>
-                      <TableColumn fx:id="subID_column" prefWidth="93.0" style="-fx-alignment: CENTER;" text="Mã môn" />
-                      <TableColumn fx:id="subName_column" prefWidth="182.0" style="-fx-alignment: CENTER;" text="Tên môn" />
+                  <TableView fx:id="table_list" prefHeight="641.0" prefWidth="969.0">
+                     <columns>
+                        <TableColumn fx:id="subID_column" prefWidth="93.0" style="-fx-alignment: CENTER;" text="Mã môn" />
+                        <TableColumn fx:id="subName_column" prefWidth="182.0" style="-fx-alignment: CENTER;" text="Tên môn" />
                         <TableColumn fx:id="credit_column" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Số TC" />
                         <TableColumn fx:id="teacher_column" prefWidth="184.0" style="-fx-alignment: CENTER;" text="Giáo viên " />
                         <TableColumn fx:id="room_column" prefWidth="94.0" style="-fx-alignment: CENTER;" text="Phòng" />
                         <TableColumn fx:id="dayOfWeek_column" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Thứ" />
                         <TableColumn fx:id="session_column" prefWidth="158.0" style="-fx-alignment: CENTER;" text="Ca" />
                         <TableColumn fx:id="max_column" prefWidth="117.0" style="-fx-alignment: CENTER;" text="Tối đa" />
-                        <TableColumn fx:id="selectCol" prefWidth="83.0" style="-fx-alignment: CENTER;" text="Chọn" />
-                    </columns>
+                     </columns>
                   </TableView>
                </content>
             </ScrollPane>
-            <Button layoutX="1098.0" layoutY="45.0" mnemonicParsing="false" onAction="#register" prefHeight="31.0" prefWidth="94.0" text="ĐĂNG KÍ" />
-            <Button layoutX="1099.0" layoutY="121.0" mnemonicParsing="false" onAction="#refresh" prefHeight="31.0" prefWidth="94.0" text="REFRESH" />
+            <Button layoutX="1015.0" layoutY="42.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="94.0" text="XÓA" />
+            <Button layoutX="1015.0" layoutY="125.0" mnemonicParsing="false" onAction="#refresh" prefHeight="31.0" prefWidth="94.0" text="REFRESH" />
          </children>
       </AnchorPane>
    </children>

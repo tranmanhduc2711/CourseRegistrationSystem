@@ -2,13 +2,9 @@ package sample;
 
 import javafx.scene.control.CheckBox;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+
 public class CourseinfoPOJO {
     private int id;
     private Integer courseId;
@@ -34,7 +30,7 @@ public class CourseinfoPOJO {
 
     public CourseinfoPOJO()
     {
-        this.select= new CheckBox();
+
     }
     public CourseinfoPOJO(int id, String id1, String name, Integer credits, String teacher, String room, String dayOfWeek, String toString, Integer max) {
         courseId=id;
@@ -50,8 +46,7 @@ public class CourseinfoPOJO {
     }
 
 
-    @Id
-    @Column(name = "id", nullable = false)
+
     public int getId() {
         return id;
     }
@@ -60,8 +55,7 @@ public class CourseinfoPOJO {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "course_id", nullable = true)
+
     public Integer getCourseId() {
         return courseId;
     }
@@ -130,17 +124,6 @@ public class CourseinfoPOJO {
     public void setMax(int m) {
         this.max = m;
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CourseinfoPOJO that = (CourseinfoPOJO) o;
-        return id == that.id && Objects.equals(courseId, that.courseId) && Objects.equals(subject_id, that.subject_id) && Objects.equals(subject_name, that.subject_name)&&Objects.equals(teacher, that.teacher)&&Objects.equals(credits, that.credits)&&Objects.equals(room, that.room)&&Objects.equals(dayOfWeek, that.dayOfWeek)&&Objects.equals(session_id, that.session_id)&&Objects.equals(max, that.max) ;
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, courseId,subject_id,subject_name,credits,teacher,room,dayOfWeek,session_id,max);
-    }
 }
 

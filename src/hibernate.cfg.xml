@@ -18,8 +18,8 @@
     <mapping class="sample.CoursePOJO"/>
     <mapping resource="Course.hbm.xml"/>
 
-    <mapping class="sample.CourseinfoPOJO"/>
-    <mapping resource="Courseinfo.hbm.xml"/>
+<!--    <mapping class="sample.CourseinfoPOJO"/>-->
+<!--    <mapping resource="Courseinfo.hbm.xml"/>-->
 
     <mapping resource="Courseregistrationsession.hbm.xml"/>
     <mapping class="sample.Courseregistrationsession"/>
